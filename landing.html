@@ -107,7 +107,7 @@
 
 
         <!-- Feature 1: Data to Insights (Simplified 3-Step) -->
-        <div class="feature-row">
+        <div class="feature-row" style="background: #e3f2fd; padding: 50px 40px; border-radius: 16px;">
             <div class="feature-text fade-up">
                 <h2 class="fade-up" style="font-size: 1.8rem; margin-bottom: 15px;">From Data to Decisions</h2>
                 <p class="fade-up" style="color: #666; margin-bottom: 20px; line-height: 1.6;">
@@ -247,25 +247,250 @@
                 <p>Focus entirely on your patient. Let HealthConnect handle the documentation and data capture flow.</p>
             </div>
             <div class="feature-visual fade-up">
-                <div
-                    style="background: white; border: 1px solid #eee; border-radius: 16px; padding: 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-                    <div style="margin-bottom: 25px;">
+                <style>
+                    .consultation-animation-container {
+                        background: white;
+                        border: 1px solid #eee;
+                        border-radius: 16px;
+                        padding: 30px;
+                        text-align: center;
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+                        min-height: 280px;
+                        display: block;
+                        position: relative;
+                        overflow: hidden;
+                    }
+
+                    /* Stages positioned absolutely so they can cross-fade */
+                    .consultation-stage {
+                        position: absolute;
+                        inset: 0;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        opacity: 0;
+                        visibility: hidden;
+                        transform: scale(0.98);
+                        transition: opacity 0.6s ease, visibility 0.6s ease, transform 0.45s ease;
+                        padding: 20px;
+                    }
+
+                    .consultation-stage.active {
+                        opacity: 1;
+                        visibility: visible;
+                        transform: scale(1);
+                    }
+
+                    @keyframes fadeIn {
+                        from {
+                            opacity: 0;
+                            transform: scale(0.95);
+                        }
+                        to {
+                            opacity: 1;
+                            transform: scale(1);
+                        }
+                    }
+
+                    @keyframes recordingPulse {
+                        0%, 100% {
+                            box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7);
+                        }
+                        50% {
+                            box-shadow: 0 0 0 8px rgba(211, 47, 47, 0);
+                        }
+                    }
+
+                    @keyframes soapBuild {
+                        from {
+                            opacity: 0;
+                            transform: translateY(10px);
+                        }
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+
+                    .soap-item {
+                        animation: soapBuild 0.5s ease-out forwards;
+                    }
+
+                    .soap-item:nth-child(1) {
+                        animation-delay: 0.2s;
+                    }
+
+                    .soap-item:nth-child(2) {
+                        animation-delay: 0.4s;
+                    }
+
+                    .soap-item:nth-child(3) {
+                        animation-delay: 0.6s;
+                    }
+
+                    .soap-item:nth-child(4) {
+                        animation-delay: 0.8s;
+                    }
+
+                    .recording-indicator {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 8px;
+                        background: #ffebee;
+                        color: #d32f2f;
+                        padding: 10px 20px;
+                        border-radius: 8px;
+                        font-size: 0.9rem;
+                        font-weight: 500;
+                    }
+
+                    .recording-dot {
+                        width: 10px;
+                        height: 10px;
+                        background: #d32f2f;
+                        border-radius: 50%;
+                        animation: recordingPulse 1.5s infinite;
+                    }
+
+                    @keyframes scalePulse {
+                        0%, 100% {
+                            transform: scale(1);
+                            opacity: 1;
+                        }
+                        50% {
+                            transform: scale(1.1);
+                            opacity: 0.5;
+                        }
+                    }
+
+                    @keyframes spin {
+                        to {
+                            transform: rotate(360deg);
+                        }
+                    }
+                </style>
+
+                <div class="consultation-animation-container">
+                    <!-- Stage 1: Initial -->
+                    <div class="consultation-stage active" data-stage="0" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 200px;">
                         <button
-                            style="background: var(--primary); color: white; border: none; padding: 12px 30px; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3); transition: transform 0.2s;">
+                            style="background: var(--primary); color: white; border: none; padding: 12px 30px; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: default; box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3); margin-bottom: 15px;">
                             Next Patient <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
                         </button>
+                        <p style="color: #999; font-size: 0.9rem; margin: 0;">Starting consultation automation...</p>
                     </div>
-                    <div style="display: flex; gap: 15px; justify-content: center;">
-                        <div
-                            style="background: #e8f5e9; color: #2e7d32; padding: 10px 20px; border-radius: 8px; font-size: 0.9rem; font-weight: 500;">
-                            <i class="fa-solid fa-file-audio" style="margin-right: 8px;"></i> Recording Started
+
+                    <!-- Stage 2: Recording Started -->
+                    <div class="consultation-stage" data-stage="1">
+                        <div style="margin-bottom: 25px; position: relative; height: 100px; display: flex; align-items: center; justify-content: center;">
+                            <div style="position: relative; width: 80px; height: 80px;">
+                                <div style="position: absolute; inset: 0; border: 3px solid #e3f2fd; border-radius: 50%; animation: scalePulse 2s infinite;"></div>
+                                <div style="position: absolute; inset: 8px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                                    <i class="fa-solid fa-microphone fa-lg"></i>
+                                </div>
+                            </div>
                         </div>
-                        <div
-                            style="background: #fff3e0; color: #ef6c00; padding: 10px 20px; border-radius: 8px; font-size: 0.9rem; font-weight: 500;">
-                            <i class="fa-solid fa-file-medical" style="margin-right: 8px;"></i> Generating SOAP
+                        <div class="recording-indicator">
+                            <div class="recording-dot"></div>
+                            Recording Session...
                         </div>
+                        <p style="color: #999; font-size: 0.85rem; margin-top: 15px;">Capturing vitals and consultation</p>
+                    </div>
+
+                    <!-- Stage 3: Processing -->
+                    <div class="consultation-stage" data-stage="2">
+                        <div style="margin-bottom: 25px; position: relative; height: 100px; display: flex; align-items: center; justify-content: center;">
+                            <div style="position: relative; width: 80px; height: 80px;">
+                                <div style="position: absolute; inset: 0; border: 3px solid #f0f0f0; border-top: 3px solid var(--primary); border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                                <div style="position: absolute; inset: 8px; background: #f5f5f5; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary);">
+                                    <i class="fa-solid fa-brain fa-lg"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="color: #999; font-size: 0.9rem;">Generating SOAP Notes...</p>
+                        <p style="color: #ccc; font-size: 0.8rem; margin-top: 15px;">AI processing consultation data</p>
+                    </div>
+
+                    <!-- Stage 4: SOAP Generated -->
+                    <div class="consultation-stage" data-stage="3">
+                        <div style="margin-bottom: 15px;">
+                            <p style="color: var(--primary); font-weight: 600; margin-bottom: 15px;">
+                                <i class="fa-solid fa-check-circle"></i> SOAP Notes Generated
+                            </p>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+                            <div class="soap-item" style="background: #e3f2fd; padding: 12px; border-radius: 8px; border-left: 3px solid var(--primary);">
+                                <strong style="color: var(--primary);">Subjective</strong>
+                                <p style="font-size: 0.75rem; color: #666; margin: 5px 0 0 0;">Patient symptoms</p>
+                            </div>
+                            <div class="soap-item" style="background: #e8f5e9; padding: 12px; border-radius: 8px; border-left: 3px solid #2e7d32;">
+                                <strong style="color: #2e7d32;">Objective</strong>
+                                <p style="font-size: 0.75rem; color: #666; margin: 5px 0 0 0;">Vitals & findings</p>
+                            </div>
+                            <div class="soap-item" style="background: #fff3e0; padding: 12px; border-radius: 8px; border-left: 3px solid #ef6c00;">
+                                <strong style="color: #ef6c00;">Assessment</strong>
+                                <p style="font-size: 0.75rem; color: #666; margin: 5px 0 0 0;">AI diagnosis</p>
+                            </div>
+                            <div class="soap-item" style="background: #f3e5f5; padding: 12px; border-radius: 8px; border-left: 3px solid #7b1fa2;">
+                                <strong style="color: #7b1fa2;">Plan</strong>
+                                <p style="font-size: 0.75rem; color: #666; margin: 5px 0 0 0;">Treatment steps</p>
+                            </div>
+                        </div>
+                        <p style="color: #999; font-size: 0.85rem;">Ready for next patient...</p>
                     </div>
                 </div>
+
+                <script>
+                    function playConsultationVideo() {
+                        const stages = document.querySelectorAll('.consultation-stage');
+                        let currentStage = 0;
+
+                        function showStage(stageIndex) {
+                            stages.forEach(s => s.classList.remove('active'));
+                            stages[stageIndex].classList.add('active');
+                        }
+
+                        function nextStage() {
+                            showStage(currentStage);
+                            
+                            if (currentStage === 0) {
+                                // Initial stage -> Recording
+                                setTimeout(() => {
+                                    currentStage = 1;
+                                    nextStage();
+                                }, 1500);
+                            } else if (currentStage === 1) {
+                                // Recording -> Processing
+                                setTimeout(() => {
+                                    currentStage = 2;
+                                    nextStage();
+                                }, 2500);
+                            } else if (currentStage === 2) {
+                                // Processing -> SOAP
+                                setTimeout(() => {
+                                    currentStage = 3;
+                                    nextStage();
+                                }, 3000);
+                            } else if (currentStage === 3) {
+                                // SOAP -> restart
+                                setTimeout(() => {
+                                    currentStage = 0;
+                                    nextStage();
+                                }, 3500);
+                            }
+                        }
+
+                        nextStage();
+                    }
+
+                    // Start animation when page loads
+                    if (document.readyState === 'loading') {
+                        document.addEventListener('DOMContentLoaded', playConsultationVideo);
+                    } else {
+                        playConsultationVideo();
+                    }
+                </script>
             </div>
         </div>
 
@@ -423,7 +648,7 @@
     </section>
 
     <!-- BSP Toolkit Library (Moved Here) -->
-    <section class="section" style="background: linear-gradient(135deg, #f0f7ff 0%, #e3f2fd 100%);">
+    <section class="section" style="background: white;">
         <center>
             <h2 class="section-title fade-up">BSP Toolkit Library</h2>
             <p class="section-subtitle fade-up">Select a specialized tool for biomedical signal analysis and processing.

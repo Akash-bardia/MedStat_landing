@@ -1,0 +1,217 @@
+/* Enhanced Mobile Responsiveness */
+
+/* Tablet Devices (768px and below) */
+@media (max-width: 768px) {
+    /* Animations performance on mobile */
+    .fade-up,
+    .fade-in-entrance {
+        transform: translateY(20px);
+    }
+
+    .fade-up.visible {
+        transform: translateY(0);
+    }
+
+    /* Image responsiveness */
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* Better padding/margins */
+    .section {
+        padding: 40px 5%;
+    }
+
+    /* Better button sizing on mobile */
+    button, .btn {
+        min-height: 44px;
+        min-width: 44px;
+        font-size: 14px;
+    }
+
+    /* Text improvements */
+    body {
+        font-size: 14px;
+    }
+
+    h1 { font-size: 1.6rem; }
+    h2 { font-size: 1.3rem; }
+    h3 { font-size: 1.1rem; }
+    h4 { font-size: 1rem; }
+
+    /* Improve contrast for readability */
+    p {
+        line-height: 1.5;
+    }
+
+    /* Horizontal scroll prevention */
+    body, html {
+        overflow-x: hidden;
+    }
+}
+
+/* Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+    /* Very small screens */
+    body {
+        font-size: 13px;
+    }
+
+    h1 { font-size: 1.3rem; }
+    h2 { font-size: 1.1rem; }
+    h3 { font-size: 0.95rem; }
+    h4 { font-size: 0.9rem; }
+
+    /* Reduce spacing for small screens */
+    .section,
+    .feature-row,
+    .feature-row.reverse {
+        padding: 25px 3%;
+        margin: 20px 0;
+    }
+
+    /* Grid adjustments */
+    .grid-3 {
+        gap: 12px;
+    }
+
+    /* Accessibility improvements */
+    button, a.btn {
+        font-size: 14px;
+        padding: 12px 20px;
+        border-radius: 25px;
+    }
+
+    /* Better form input sizing */
+    input, textarea, select {
+        font-size: 16px;
+        min-height: 44px;
+        padding: 12px;
+    }
+
+    /* Animation box sizing */
+    .consultation-animation-container,
+    .queue-container,
+    .calendar-ai {
+        padding: 15px;
+    }
+
+    /* Soap items grid on mobile */
+    .soap-item {
+        padding: 12px;
+        font-size: 0.8rem;
+    }
+
+    /* Ensure videos and embeds are responsive */
+    video, iframe {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Ultra-small screens (360px and below) */
+@media (max-width: 360px) {
+    header {
+        padding: 0.7rem 2%;
+    }
+
+    .logo {
+        font-size: 1rem;
+        gap: 8px;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+        margin: 20px 0 10px 0;
+    }
+
+    .feature-text h2 {
+        font-size: 1rem;
+    }
+
+    button, .btn {
+        font-size: 0.85rem;
+        padding: 10px 16px;
+    }
+
+    /* Reduce margins */
+    .section {
+        padding: 20px 3%;
+        margin: 15px 0;
+    }
+
+    /* Single column layout everywhere */
+    .grid-3,
+    .feature-row,
+    .feature-row.reverse {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+
+    /* Reduce icon sizes */
+    .icon-box {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    /* Ensure readability */
+    p {
+        line-height: 1.4;
+    }
+}
+
+/* Landscape mode adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+    header {
+        padding: 0.5rem 5%;
+    }
+
+    .hero {
+        padding: 80px 5% 40px;
+    }
+
+    .section {
+        padding: 30px 5%;
+    }
+
+    .hero h1 {
+        font-size: 1.4rem;
+    }
+
+    .btn {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+    button, a {
+        padding: 12px 20px;
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    button:active, a:active {
+        opacity: 0.8;
+    }
+}
+
+/* Print styles */
+@media print {
+    header, footer, .nav-links {
+        display: none;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .btn, button {
+        display: none;
+    }
+}

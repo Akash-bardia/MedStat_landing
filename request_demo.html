@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Demo - HealthConnect</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <a href="landing.html" class="logo"><i class="fa-solid fa-heart-pulse"></i> HealthConnect</a>
+        <a href="landing.html" style="text-decoration: none; color: #666;">Back</a>
+    </header>
+
+    <div class="main-content">
+        <div class="demo-card">
+            <h2>Schedule a Demo</h2>
+            <p class="subtitle">See how HealthConnect transforms clinical workflows.</p>
+
+            <form action="https://formsubmit.co/andimandi6910@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New Demo Request - HealthConnect">
+                <input type="hidden" name="_captcha" value="false">
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label>Clinic / Hospital Name</label>
+                    <input type="text" name="clinic_name" required>
+                </div>
+                <div class="form-group">
+                    <label>Role</label>
+                    <select name="role">
+                        <option>Doctor</option>
+                        <option>Administrator</option>
+                        <option>IT Manager</option>
+                        <option>Investor</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Work Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label>Specific Interests</label>
+                    <textarea name="interests" rows="3"
+                        placeholder="e.g. AI Triage, BSP, Queue Management..."></textarea>
+                </div>
+                <button type="submit">Request Demo</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="successOverlay" class="success-overlay">
+        <i class="fa-solid fa-check-circle" style="font-size: 4rem; color: #2e7d32; margin-bottom: 20px;"></i>
+        <h2 style="color: #2e7d32;">Request Received!</h2>
+        <p>Our team will contact you within 24 hours to schedule your personalized demo.</p>
+        <a href="landing.html" style="margin-top: 20px; color: #1976d2; text-decoration: none;">Return to Home</a>
+    </div>
+
+</body>
+
+</html>

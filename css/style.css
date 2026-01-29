@@ -1226,3 +1226,866 @@ button[type="submit"]:hover {
 .delay-3 {
     animation-delay: 0.6s;
 }
+
+/* ===== SIMPLE 3-STEP PIPELINE ===== */
+.simple-pipeline-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(25, 118, 210, 0.1);
+}
+
+.simple-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    max-width: 200px;
+}
+
+.stage-number {
+    width: 28px;
+    height: 28px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+}
+
+.stage-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    transition: transform 0.3s;
+}
+
+.stage-icon.ai-pulse {
+    animation: ai-pulse 2s infinite;
+}
+
+@keyframes ai-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 4px 25px rgba(25, 118, 210, 0.5);
+        transform: scale(1.05);
+    }
+}
+
+.stage-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.stage-desc {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+.stage-items {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+.stage-item {
+    background: #f5f7fa;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    color: var(--text-dark);
+    border: 1px solid #e3e8ef;
+}
+
+.stage-item.tip {
+    background: #e8f5e9;
+    border-color: #c8e6c9;
+    color: #2e7d32;
+    font-weight: 500;
+}
+
+.simple-arrow {
+    color: var(--primary);
+    font-size: 1.5rem;
+    animation: arrow-pulse 2s infinite;
+}
+
+@keyframes arrow-pulse {
+
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: translateX(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(5px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .simple-pipeline-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .simple-arrow {
+        transform: rotate(90deg);
+    }
+}
+
+/* ===== ML PIPELINE ANIMATION ===== */
+.ml-pipeline-container {
+    background: rgba(25, 118, 210, 0.05);
+    border: 1px solid rgba(25, 118, 210, 0.2);
+    border-radius: 16px;
+    padding: 25px 20px 20px;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.pipeline-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.stage-label {
+    color: var(--primary);
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+    flex: 1;
+    opacity: 0.7;
+}
+
+.pipeline-flow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    min-height: 160px;
+}
+
+.pipeline-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Data Sources */
+.data-sources-stage {
+    gap: 4px;
+}
+
+.data-source-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: white;
+    border: 1px solid #e3f2fd;
+    padding: 6px 10px;
+    border-radius: 6px;
+    color: var(--text-dark);
+    font-size: 0.65rem;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInSource 8s infinite;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.1);
+}
+
+.data-source-box i {
+    color: var(--primary);
+    font-size: 0.9rem;
+}
+
+.src-1 {
+    animation-delay: 0s;
+}
+
+.src-2 {
+    animation-delay: 0.2s;
+}
+
+.src-3 {
+    animation-delay: 0.4s;
+}
+
+.src-4 {
+    animation-delay: 0.6s;
+}
+
+@keyframes slideInSource {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    90% {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+}
+
+/* Pipeline Connectors */
+.pipeline-connector {
+    position: relative;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(25, 118, 210, 0.2), rgba(25, 118, 210, 0.5));
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.connector-arrow {
+    position: absolute;
+    right: -6px;
+    color: var(--primary);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.data-packet {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: flowPacket 2s infinite;
+    box-shadow: 0 0 8px rgba(25, 118, 210, 0.5);
+}
+
+.packet-1 {
+    animation-delay: 0s;
+}
+
+.packet-2 {
+    animation-delay: 0.7s;
+}
+
+.packet-3 {
+    animation-delay: 1.4s;
+}
+
+@keyframes flowPacket {
+    0% {
+        left: 0;
+        opacity: 1;
+    }
+
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+.data-stream {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    animation: streamFlow 1.5s infinite;
+}
+
+@keyframes streamFlow {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Ingestion Stage */
+.ingestion-box {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    min-width: 70px;
+    box-shadow: 0 4px 15px rgba(25, 118, 210, 0.25);
+}
+
+.ingestion-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 6px;
+    color: white;
+    font-size: 0.85rem;
+    animation: pulseIcon 2s infinite;
+}
+
+@keyframes pulseIcon {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.ingestion-label {
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.ingestion-bars {
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+}
+
+.bar {
+    width: 3px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 2px;
+    animation: barPulse 1s infinite;
+}
+
+.bar-1 {
+    height: 10px;
+    animation-delay: 0s;
+}
+
+.bar-2 {
+    height: 14px;
+    animation-delay: 0.2s;
+}
+
+.bar-3 {
+    height: 8px;
+    animation-delay: 0.4s;
+}
+
+@keyframes barPulse {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Orchestration Stage */
+.orchestration-box {
+    background: white;
+    border: 1px solid #e3f2fd;
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 90px;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.1);
+}
+
+.orch-header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--primary);
+    font-size: 0.6rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    justify-content: center;
+}
+
+.orch-header i {
+    font-size: 0.7rem;
+}
+
+.orch-tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.55rem;
+    color: var(--text-light);
+    padding: 3px 6px;
+    background: #e3f2fd;
+    border-radius: 3px;
+    opacity: 0;
+    animation: taskCheck 8s infinite;
+}
+
+.task-item i {
+    color: #2e7d32;
+    font-size: 0.5rem;
+}
+
+.task-1 {
+    animation-delay: 1.5s;
+}
+
+.task-2 {
+    animation-delay: 2s;
+}
+
+.task-3 {
+    animation-delay: 2.5s;
+}
+
+@keyframes taskCheck {
+
+    0%,
+    15% {
+        opacity: 0;
+        transform: translateX(-5px);
+    }
+
+    20%,
+    85% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    90%,
+    100% {
+        opacity: 0;
+        transform: translateX(5px);
+    }
+}
+
+/* Feature Vectors */
+.feature-vector {
+    position: absolute;
+    width: 16px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 2px;
+    animation: vectorFlow 3s infinite;
+}
+
+.vector-1 {
+    animation-delay: 0s;
+}
+
+.vector-2 {
+    animation-delay: 1.5s;
+    top: 6px;
+}
+
+@keyframes vectorFlow {
+    0% {
+        left: -20px;
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+/* ML/DL Model Core */
+.model-stage {
+    position: relative;
+}
+
+.model-box {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.model-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid transparent;
+}
+
+.ring-outer {
+    width: 100px;
+    height: 100px;
+    border-color: rgba(25, 118, 210, 0.2);
+    border-top-color: var(--primary);
+    animation: rotateRing 3s linear infinite;
+}
+
+.ring-middle {
+    width: 76px;
+    height: 76px;
+    border-color: rgba(0, 188, 212, 0.2);
+    border-right-color: var(--accent);
+    animation: rotateRing 2s linear infinite reverse;
+}
+
+.ring-inner {
+    width: 52px;
+    height: 52px;
+    border-color: rgba(46, 125, 50, 0.2);
+    border-bottom-color: #2e7d32;
+    animation: rotateRing 1.5s linear infinite;
+}
+
+@keyframes rotateRing {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.model-brain {
+    position: relative;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+    box-shadow: 0 0 20px rgba(25, 118, 210, 0.4);
+    animation: pulseBrain 2s infinite;
+}
+
+@keyframes pulseBrain {
+
+    0%,
+    100% {
+        box-shadow: 0 0 15px rgba(25, 118, 210, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(25, 118, 210, 0.6);
+    }
+}
+
+.model-label {
+    position: absolute;
+    bottom: -8px;
+    text-align: center;
+    color: var(--primary);
+    font-size: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+}
+
+.neural-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.neural-dots .dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: neuralPulse 2s infinite;
+}
+
+.d1 {
+    top: 10%;
+    left: 50%;
+    animation-delay: 0s;
+}
+
+.d2 {
+    top: 30%;
+    left: 90%;
+    animation-delay: 0.3s;
+}
+
+.d3 {
+    top: 70%;
+    left: 90%;
+    animation-delay: 0.6s;
+}
+
+.d4 {
+    top: 90%;
+    left: 50%;
+    animation-delay: 0.9s;
+}
+
+.d5 {
+    top: 70%;
+    left: 10%;
+    animation-delay: 1.2s;
+}
+
+.d6 {
+    top: 30%;
+    left: 10%;
+    animation-delay: 1.5s;
+}
+
+@keyframes neuralPulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* Output Connector */
+.output-connector .output-beam {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #2e7d32, transparent);
+    animation: beamFlow 1.2s infinite;
+}
+
+@keyframes beamFlow {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Predictions Stage */
+.predictions-stage {
+    gap: 5px;
+}
+
+.prediction-card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    padding: 8px 10px;
+    border-radius: 8px;
+    min-width: 130px;
+    box-shadow: 0 2px 10px rgba(25, 118, 210, 0.15);
+    border: 1px solid #e3f2fd;
+    opacity: 0;
+    transform: translateX(20px);
+    animation: slideOutPrediction 8s infinite;
+}
+
+.pred-1 {
+    animation-delay: 4s;
+}
+
+.pred-2 {
+    animation-delay: 4.3s;
+}
+
+.pred-3 {
+    animation-delay: 4.6s;
+}
+
+@keyframes slideOutPrediction {
+
+    0%,
+    45% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    55% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    90% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+}
+
+.pred-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+}
+
+.pred-1 .pred-icon {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.pred-2 .pred-icon {
+    background: #fff3e0;
+    color: #ef6c00;
+}
+
+.pred-3 .pred-icon {
+    background: #e3f2fd;
+    color: var(--primary);
+}
+
+.pred-content {
+    flex: 1;
+}
+
+.pred-title {
+    font-size: 0.55rem;
+    color: var(--text-light);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+}
+
+.pred-value {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+/* Pipeline Progress Bar */
+.pipeline-progress {
+    margin-top: 20px;
+    padding: 0 10px;
+}
+
+.progress-track {
+    height: 3px;
+    background: rgba(25, 118, 210, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary), var(--accent), #2e7d32);
+    border-radius: 2px;
+    animation: progressFlow 8s infinite;
+}
+
+@keyframes progressFlow {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+/* Responsive for ML Pipeline */
+@media (max-width: 1024px) {
+    .pipeline-flow {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .pipeline-connector {
+        display: none;
+    }
+
+    .pipeline-labels {
+        display: none;
+    }
+
+    .pipeline-stage {
+        min-width: 120px;
+    }
+}

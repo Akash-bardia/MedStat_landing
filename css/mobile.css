@@ -1,217 +1,847 @@
-/* Enhanced Mobile Responsiveness */
+/* ============================================
+   MOBILE NAVIGATION STYLES
+   ============================================ */
 
-/* Tablet Devices (768px and below) */
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+/* Mobile Navigation Overlay */
+.mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    max-width: 80%;
+    height: 100%;
+    background: white;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 80px 30px 30px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+}
+
+.mobile-nav-overlay.active .mobile-nav {
+    transform: translateX(0);
+}
+
+.mobile-nav-link {
+    display: block;
+    padding: 15px 0;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.mobile-nav-link:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav-link:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link:active {
+    color: var(--primary);
+    padding-left: 15px;
+}
+
+.mobile-nav-link:hover:before {
+    width: 8px;
+}
+
+/* Show mobile menu on tablets and phones */
 @media (max-width: 768px) {
-    /* Animations performance on mobile */
-    .fade-up,
-    .fade-in-entrance {
-        transform: translateY(20px);
+    .mobile-menu-toggle {
+        display: flex;
     }
 
-    .fade-up.visible {
-        transform: translateY(0);
-    }
-
-    /* Image responsiveness */
-    img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    /* Better padding/margins */
-    .section {
-        padding: 40px 5%;
-    }
-
-    /* Better button sizing on mobile */
-    button, .btn {
-        min-height: 44px;
-        min-width: 44px;
-        font-size: 14px;
-    }
-
-    /* Text improvements */
-    body {
-        font-size: 14px;
-    }
-
-    h1 { font-size: 1.6rem; }
-    h2 { font-size: 1.3rem; }
-    h3 { font-size: 1.1rem; }
-    h4 { font-size: 1rem; }
-
-    /* Improve contrast for readability */
-    p {
-        line-height: 1.5;
-    }
-
-    /* Horizontal scroll prevention */
-    body, html {
-        overflow-x: hidden;
+    .back-link {
+        display: none !important;
+        /* Hide back links on mobile, use menu instead */
     }
 }
 
-/* Mobile Devices (480px and below) */
-@media (max-width: 480px) {
-    /* Very small screens */
-    body {
-        font-size: 13px;
-    }
 
-    h1 { font-size: 1.3rem; }
-    h2 { font-size: 1.1rem; }
-    h3 { font-size: 0.95rem; }
-    h4 { font-size: 0.9rem; }
+/* ============================================
+   ENHANCED MOBILE RESPONSIVE STYLES
+   ============================================ */
 
-    /* Reduce spacing for small screens */
-    .section,
-    .feature-row,
-    .feature-row.reverse {
-        padding: 25px 3%;
-        margin: 20px 0;
-    }
+@media (max-width: 768px) {
 
-    /* Grid adjustments */
-    .grid-3 {
-        gap: 12px;
-    }
-
-    /* Accessibility improvements */
-    button, a.btn {
-        font-size: 14px;
-        padding: 12px 20px;
-        border-radius: 25px;
-    }
-
-    /* Better form input sizing */
-    input, textarea, select {
-        font-size: 16px;
-        min-height: 44px;
-        padding: 12px;
-    }
-
-    /* Animation box sizing */
-    .consultation-animation-container,
-    .queue-container,
-    .calendar-ai {
-        padding: 15px;
-    }
-
-    /* Soap items grid on mobile */
-    .soap-item {
-        padding: 12px;
-        font-size: 0.8rem;
-    }
-
-    /* Ensure videos and embeds are responsive */
-    video, iframe {
-        max-width: 100%;
-        height: auto;
-    }
-}
-
-/* Ultra-small screens (360px and below) */
-@media (max-width: 360px) {
+    /* Header Adjustments */
     header {
-        padding: 0.7rem 2%;
+        padding: 1rem 4%;
     }
 
     .logo {
-        font-size: 1rem;
-        gap: 8px;
+        font-size: 1.5rem;
     }
 
-    .section-title {
-        font-size: 1.2rem;
-        margin: 20px 0 10px 0;
-    }
-
-    .feature-text h2 {
-        font-size: 1rem;
-    }
-
-    button, .btn {
-        font-size: 0.85rem;
-        padding: 10px 16px;
-    }
-
-    /* Reduce margins */
-    .section {
-        padding: 20px 3%;
-        margin: 15px 0;
-    }
-
-    /* Single column layout everywhere */
-    .grid-3,
-    .feature-row,
-    .feature-row.reverse {
-        grid-template-columns: 1fr;
-        flex-direction: column;
-    }
-
-    /* Reduce icon sizes */
-    .icon-box {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-    }
-
-    /* Ensure readability */
-    p {
-        line-height: 1.4;
-    }
-}
-
-/* Landscape mode adjustments */
-@media (max-height: 600px) and (orientation: landscape) {
-    header {
-        padding: 0.5rem 5%;
-    }
-
+    /* Hero Section */
     .hero {
-        padding: 80px 5% 40px;
-    }
-
-    .section {
-        padding: 30px 5%;
+        padding: 120px 4% 60px;
     }
 
     .hero h1 {
-        font-size: 1.4rem;
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    /* Simplify hero mesh on tablets */
+    .msp-mesh {
+        width: 350px;
+        height: 350px;
+    }
+
+    .msp-node {
+        padding: 12px 20px;
+        font-size: 0.85rem;
+    }
+
+    .n-center {
+        width: 100px;
+        height: 100px;
+    }
+
+    /* Sections */
+    .section {
+        padding: 60px 4%;
+    }
+
+    .tech-showcase {
+        padding: 80px 4%;
+    }
+
+    /* Feature Rows */
+    .feature-row {
+        margin-bottom: 60px;
+    }
+
+    /* Data to Insights - Stack vertically on tablet */
+    .data-decision-flow {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px 10px;
+    }
+
+    .dd-group {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .dd-arrow-container {
+        transform: rotate(90deg);
+    }
+
+    .dd-core-container {
+        margin: 20px 0;
+    }
+
+    /* Queue Visual - Responsive adjustments */
+    .queue-visual-tree {
+        padding: 20px;
+    }
+
+    .queue-branches {
+        flex-direction: column;
+    }
+
+    .q-branch {
+        margin-bottom: 15px;
+    }
+
+    /* BSP Toolkit - Stack on tablet */
+    .bsp-tool-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Vision Section */
+    .vision-section {
+        padding: 80px 4%;
+    }
+
+    .vision-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    /* Forms */
+    .form-container {
+        padding: 30px 20px;
+        margin: 40px 4%;
+    }
+
+    .demo-card {
+        padding: 30px 20px;
+    }
+}
+
+/* ============================================
+   MOBILE PHONES (Small Screens)
+   ============================================ */
+
+@media (max-width: 480px) {
+
+    /* Header */
+    header {
+        padding: 0.8rem 3%;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .logo i {
+        font-size: 1.1rem;
+    }
+
+    /* Hero Section - Mobile Optimized */
+    .hero {
+        padding: 100px 3% 50px;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+        line-height: 1.25;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
     }
 
     .btn {
-        padding: 8px 20px;
+        width: 100%;
+        padding: 12px 25px;
+        font-size: 0.95rem;
+    }
+
+    /* Simplify mesh animation significantly on mobile */
+    .msp-mesh {
+        width: 250px;
+        height: 250px;
+        margin-top: 20px;
+    }
+
+    .msp-node {
+        padding: 8px 12px;
+        font-size: 0.7rem;
+        gap: 5px;
+    }
+
+    .msp-node i {
+        font-size: 1rem;
+    }
+
+    .n-center {
+        width: 80px;
+        height: 80px;
+    }
+
+    .n-center i {
+        font-size: 1.5rem;
+    }
+
+    .n-center span {
+        font-size: 0.7rem;
+    }
+
+    /* Hide connectors and AI packets on very small screens for performance */
+    .connector {
+        display: none;
+    }
+
+    /* Sections */
+    .section {
+        padding: 50px 3%;
+    }
+
+    .section-title {
+        font-size: 1.6rem !important;
+        margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem !important;
+        margin-bottom: 40px;
+    }
+
+    .tech-showcase {
+        padding: 50px 3%;
+    }
+
+    /* Cards */
+    .card {
+        padding: 25px 20px;
+    }
+
+    .card h3 {
+        font-size: 1.1rem;
+    }
+
+    .card p {
+        font-size: 0.9rem;
+    }
+
+    .icon-box {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    /* Feature Rows */
+    .feature-row,
+    .feature-row.reverse {
+        margin-bottom: 50px;
+        gap: 30px;
+    }
+
+    .feature-text h2 {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+    }
+
+    .feature-text p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    /* Data to Insights - Mobile optimized */
+    .data-decision-flow {
+        gap: 20px;
+        padding: 20px 5px;
+    }
+
+    .dd-icon-box {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .dd-icon-box i {
+        font-size: 0.9rem;
+    }
+
+    .dd-core {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .dd-core-container p {
+        font-size: 0.85rem;
+    }
+
+    .dd-core-container small {
+        font-size: 0.7rem;
+    }
+
+    .dd-arrow {
+        font-size: 1.2rem;
+    }
+
+    /* Queue Management */
+    .queue-visual-tree {
+        padding: 15px;
+    }
+
+    .q-node-header {
+        font-size: 0.65rem;
+        padding: 3px 10px;
+    }
+
+    .q-track-main {
+        gap: 8px;
+    }
+
+    .q-dot {
+        width: 28px;
+        height: 28px;
+        font-size: 0.7rem;
+    }
+
+    .q-branch {
+        padding: 12px;
+    }
+
+    .branch-label {
+        font-size: 0.7rem;
+    }
+
+    .branch-desc {
+        font-size: 0.65rem;
+    }
+
+    /* Consultation Animation */
+    .consultation-animation-container {
+        min-height: 250px;
+        padding: 20px 15px;
+    }
+
+    .consultation-animation-container button {
+        padding: 10px 22px;
+        font-size: 0.9rem;
+    }
+
+    .soap-item {
+        padding: 8px;
+    }
+
+    .soap-item strong {
+        font-size: 0.8rem;
+    }
+
+    .soap-item p {
+        font-size: 0.7rem;
+    }
+
+    /* Triage Animation */
+    .calendar-ai {
+        height: 320px;
+        padding: 15px;
+    }
+
+    /* BSP Toolkit */
+    .bsp-tool-grid {
+        gap: 15px;
+    }
+
+    /* Vision Section */
+    .vision-section {
+        padding: 60px 3%;
+    }
+
+    .vision-header h2 {
+        font-size: 1.6rem;
+    }
+
+    .vision-header p {
+        font-size: 0.95rem;
+    }
+
+    .vision-eyebrow {
+        font-size: 0.75rem;
+        padding: 6px 15px;
+    }
+
+    .vision-card {
+        padding: 30px 20px;
+    }
+
+    .vision-icon-wrap {
+        width: 65px;
+        height: 65px;
+        margin-bottom: 20px;
+    }
+
+    .vision-icon-wrap i {
+        font-size: 1.6rem;
+    }
+
+    .vision-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+    }
+
+    .vision-card p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    /* Forms - Mobile Optimized */
+    .form-container {
+        padding: 25px 15px;
+        margin: 30px 3%;
+    }
+
+    .form-container h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .demo-card {
+        padding: 25px 15px;
+    }
+
+    .demo-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    label {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+    }
+
+    input,
+    select,
+    textarea {
+        padding: 14px 12px;
+        /* Increased for touch-friendly sizing */
+        font-size: 16px;
+        /* Prevent zoom on iOS */
+        min-height: 44px;
+        /* Touch-friendly minimum */
+    }
+
+    button[type="submit"] {
+        padding: 16px;
+        font-size: 1rem;
+        min-height: 50px;
+        /* Touch-friendly */
+    }
+
+    /* Footer */
+    footer {
+        padding: 50px 3%;
+    }
+
+    .footer-grid {
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-col h4 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+    .footer-col p,
+    .footer-col a {
         font-size: 0.9rem;
     }
 }
 
-/* Touch device improvements */
-@media (hover: none) and (pointer: coarse) {
-    button, a {
-        padding: 12px 20px;
-        min-height: 44px;
-        min-width: 44px;
+/* ============================================
+   LANDSCAPE MOBILE OPTIMIZATION
+   ============================================ */
+
+@media (max-width: 896px) and (max-height: 480px) and (orientation: landscape) {
+
+    .hero {
+        padding: 100px 5% 40px;
     }
 
-    button:active, a:active {
-        opacity: 0.8;
+    .hero-text {
+        margin-bottom: 30px;
+    }
+
+    .msp-mesh {
+        width: 200px;
+        height: 200px;
+    }
+
+    .section {
+        padding: 40px 5%;
+    }
+}
+
+/* ============================================
+   TOUCH-FRIENDLY IMPROVEMENTS
+   ============================================ */
+
+@media (hover: none) and (pointer: coarse) {
+    /* This targets touch devices */
+
+    /* Increase tap targets */
+    .btn {
+        min-height: 44px;
+        padding: 14px 30px;
+    }
+
+    .nav-links a {
+        padding: 10px 15px;
+    }
+
+    /* Disable hover effects on touch devices */
+    .card:hover {
+        transform: none;
+    }
+
+    /* Simplify animations for better touch performance */
+    * {
+        animation-duration: 0.8s !important;
+    }
+}
+
+/* ============================================
+   SLOWER MOBILE ANIMATIONS FOR BETTER VIEWING
+   ============================================ */
+
+/* Apply slower animations on mobile devices for better user experience */
+@media (max-width: 768px) {
+
+    /* Slow down menu transitions slightly */
+    .mobile-nav-overlay,
+    .mobile-nav {
+        transition-duration: 0.4s;
+    }
+
+    .mobile-menu-toggle span,
+    .mobile-nav-link {
+        transition-duration: 0.4s;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Hero mesh animations - Slower float */
+    .msp-node {
+        animation-duration: 9s !important;
+        /* Was 6s, now 1.5x slower */
+    }
+
+    /* Fade-in entrance animations */
+    .fade-in-entrance {
+        animation-duration: 1.5s !important;
+        /* Was 1s */
+    }
+
+    /* Consultation stage animation */
+    .consultation-stage {
+        transition-duration: 0.8s !important;
+        /* Was 0.6s */
+    }
+
+    /* SOAP item build animation */
+    .soap-item {
+        animation-duration: 0.8s !important;
+        /* Was 0.5s */
+    }
+
+    /* Data to Insights Flow - Slower transitions */
+    .d1,
+    .d2,
+    .d3 {
+        animation-duration: 12s !important;
+        /* Was 8s, now 1.5x slower */
+    }
+
+    .o1,
+    .o2,
+    .o3 {
+        animation-duration: 12s !important;
+        /* Was 8s, now 1.5x slower */
+    }
+
+    .dd-core {
+        animation-duration: 3s !important;
+        /* Was 2s, now 1.5x slower */
+    }
+
+    /* Queue/Triage animations - Much slower for comprehension */
+    .triage-step {
+        animation-duration: 16s !important;
+        /* Was 12s, now ~1.33x slower */
+    }
+
+    .step-1 {
+        animation: show-step-1 16s infinite !important;
+    }
+
+    .step-2 {
+        animation: show-step-2 16s infinite !important;
+    }
+
+    .step-3 {
+        animation: show-step-3 16s infinite !important;
+    }
+
+    /* Queue branch animations */
+    .visual-token {
+        animation-duration: 6s !important;
+        /* Was 4s, now 1.5x slower */
+    }
+
+    .emergency-token {
+        animation-duration: 6s !important;
+    }
+
+    /* Pulse and shimmer effects - Slightly slower */
+    .live-pulse {
+        animation-duration: 2.2s !important;
+        /* Was 1.5s */
+    }
+
+    .pulse-dot {
+        animation-duration: 2.2s !important;
+    }
+
+    .recording-dot {
+        animation-duration: 2.2s !important;
+    }
+
+    /* Vision card entrance */
+    .vision-card {
+        animation-duration: 0.9s !important;
+        /* Was 0.6s, now 1.5x slower */
+    }
+
+    /* Card hover/transform effects - Gentler */
+    .card,
+    .vision-card,
+    .bsp-tool-card {
+        transition-duration: 0.5s !important;
+        /* Was ~0.3s, slower hover */
+    }
+
+    /* Fade-up scroll animations */
+    .fade-up {
+        transition-duration: 0.9s !important;
+        /* Was 0.6s */
+    }
+
+    /* AI brain pulse */
+    .dd-pulse,
+    .pulseBrain,
+    .pulse-brain {
+        animation-duration: 3s !important;
+        /* Was 2s, now 1.5x slower */
+    }
+
+    /* Model/AI processing animations */
+    .model-core,
+    .ai-scanner {
+        animation-duration: 1.5s !important;
+        /* Slower spin */
+    }
+
+    /* Reduce overall animation intensity for smoother performance */
+    * {
+        animation-timing-function: ease-in-out !important;
+    }
+}
+
+/* Extra slow for very small devices or low-end phones */
+@media (max-width: 375px) {
+
+    /* Further slow down complex animations */
+    .d1,
+    .d2,
+    .d3,
+    .o1,
+    .o2,
+    .o3 {
+        animation-duration: 14s !important;
+        /* Even slower for small screens */
+    }
+
+    .triage-step,
+    .step-1,
+    .step-2,
+    .step-3 {
+        animation-duration: 18s !important;
+        /* Slower triage cycle */
+    }
+
+    /* Mesh nodes */
+    .msp-node {
+        animation-duration: 10s !important;
+        /* Very slow float */
     }
 }
 
 /* Print styles */
 @media print {
-    header, footer, .nav-links {
+
+    .mobile-menu-toggle,
+    .mobile-nav-overlay,
+    .msp-mesh,
+    .data-decision-flow,
+    .queue-visual-tree {
         display: none;
+    }
+
+    header {
+        position: static;
     }
 
     body {
         background: white;
-        color: black;
-    }
-
-    .btn, button {
-        display: none;
     }
 }

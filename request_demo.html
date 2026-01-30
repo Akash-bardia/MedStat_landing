@@ -4,68 +4,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Request Demo - HealthConnect</title>
+    <title>Request Demo - MedStat</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
+        rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/mobile.css" rel="stylesheet">
+    <link href="css/form-pages.css" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <a href="landing.html" class="logo"><i class="fa-solid fa-heart-pulse"></i> HealthConnect</a>
-        <a href="landing.html" style="text-decoration: none; color: #666;">Back</a>
+        <a href="landing.html" class="logo"><i class="fa-solid fa-heart-pulse"></i> MedStat</a>
+        <a href="landing.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
 
-    <div class="main-content">
-        <div class="demo-card">
-            <h2>Schedule a Demo</h2>
-            <p class="subtitle">See how HealthConnect transforms clinical workflows.</p>
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay">
+        <nav class="mobile-nav">
+            <a href="landing.html" class="mobile-nav-link">Home</a>
+            <a href="landing.html#features" class="mobile-nav-link">Solutions</a>
+            <a href="request_demo.html" class="mobile-nav-link">Request a Demo</a>
+            <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+        </nav>
+    </div>
 
-            <form action="https://formsubmit.co/andimandi6910@gmail.com" method="POST">
-                <input type="hidden" name="_subject" value="New Demo Request - HealthConnect">
-                <input type="hidden" name="_captcha" value="false">
+    <div class="page-container">
+        <div class="content-wrapper">
+            <!-- Left Side - Demo Information -->
+            <div class="info-section">
+                <div class="info-header">
+                    <h1>Schedule a Demo</h1>
+                    <p>Experience firsthand how MedStat transforms clinical workflows and improves patient outcomes.</p>
+                </div>
 
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" name="name" required>
+                <div class="demo-benefits">
+                    <h3>What You'll Get:</h3>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>30-Minute Personalized Demo</h4>
+                            <p>Tailored to your specific needs and workflow</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Expert Consultation</h4>
+                            <p>Healthcare IT specialists answer all your questions</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>ROI Analysis</h4>
+                            <p>See potential savings and efficiency gains</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Custom Proposal</h4>
+                            <p>Detailed implementation plan for your practice</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Clinic / Hospital Name</label>
-                    <input type="text" name="clinic_name" required>
+
+                <div class="trust-badges">
+                    <div class="trust-item">
+                        <i class="fas fa-lock"></i>
+                        <span>Secure & Private</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-headset"></i>
+                        <span>24/7 Support</span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Role</label>
-                    <select name="role">
-                        <option>Doctor</option>
-                        <option>Administrator</option>
-                        <option>IT Manager</option>
-                        <option>Investor</option>
-                    </select>
+            </div>
+
+            <!-- Right Side - Demo Request Form -->
+            <div class="form-section">
+                <div class="form-card">
+                    <h2>Request Your Demo</h2>
+                    <p class="form-subtitle">Fill in your details and we'll contact you within 24 hours to schedule.</p>
+
+                    <!-- Form now handled by FastAPI backend -->
+                    <form id="demo-form">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" name="name" required placeholder="Dr. Jane Smith">
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-hospital"></i> Clinic / Hospital Name</label>
+                            <input type="text" name="clinic" required placeholder="City General Hospital">
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-user-tag"></i> Your Role</label>
+                            <select name="role">
+                                <option>Doctor</option>
+                                <option>Administrator</option>
+                                <option>IT Manager</option>
+                                <option>Practice Manager</option>
+                                <option>Investor</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Work Email</label>
+                            <input type="email" name="email" required placeholder="email@hospital.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Phone Number</label>
+                            <input type="tel" name="phone" required placeholder="+91 98765 43210">
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-list-check"></i> Specific Interests (Optional)</label>
+                            <textarea name="interests" rows="3"
+                                placeholder="e.g., AI Triage, Queue Management, Remote Monitoring, SOAP Notes..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-calendar-check"></i> Request Demo
+                        </button>
+
+                        <p class="privacy-note">
+                            <i class="fas fa-info-circle"></i> Your information is safe with us. We respect your
+                            privacy.
+                        </p>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label>Work Email</label>
-                    <input type="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="tel" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label>Specific Interests</label>
-                    <textarea name="interests" rows="3"
-                        placeholder="e.g. AI Triage, BSP, Queue Management..."></textarea>
-                </div>
-                <button type="submit">Request Demo</button>
-            </form>
+            </div>
         </div>
     </div>
 
-    <div id="successOverlay" class="success-overlay">
-        <i class="fa-solid fa-check-circle" style="font-size: 4rem; color: #2e7d32; margin-bottom: 20px;"></i>
-        <h2 style="color: #2e7d32;">Request Received!</h2>
-        <p>Our team will contact you within 24 hours to schedule your personalized demo.</p>
-        <a href="landing.html" style="margin-top: 20px; color: #1976d2; text-decoration: none;">Return to Home</a>
-    </div>
-
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/form-handler.js"></script>
 </body>
 
 </html>

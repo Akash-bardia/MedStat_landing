@@ -4,60 +4,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - HealthConnect</title>
+    <title>Contact Us - MedStat</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
+        rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/mobile.css" rel="stylesheet">
+    <link href="css/form-pages.css" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <a href="landing.html" class="logo"><i class="fa-solid fa-heart-pulse"></i> HealthConnect</a>
-        <a href="landing.html" style="color: #555; text-decoration: none;">Back to Home</a>
+        <a href="landing.html" class="logo"><i class="fa-solid fa-heart-pulse"></i> MedStat</a>
+        <a href="landing.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
 
-    <div class="form-container">
-        <h2>Get in Touch</h2>
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay">
+        <nav class="mobile-nav">
+            <a href="landing.html" class="mobile-nav-link">Home</a>
+            <a href="landing.html#features" class="mobile-nav-link">Solutions</a>
+            <a href="request_demo.html" class="mobile-nav-link">Request a Demo</a>
+            <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+        </nav>
+    </div>
 
-        <!-- Standard Form Submission for reliability -->
-        <form action="https://formsubmit.co/andimandi6910@gmail.com" method="POST">
-            <!-- Disable Captcha for smoother demo if desired, or keep default -->
-            <input type="hidden" name="_captcha" value="false">
-            <!-- Turn off strict template to see data clearly -->
-            <input type="hidden" name="_template" value="table">
+    <div class="page-container">
+        <div class="content-wrapper">
+            <!-- Left Side - Contact Information -->
+            <div class="info-section">
+                <div class="info-header">
+                    <h1>Get in Touch</h1>
+                    <p>We'd love to hear from you. Our team is ready to help transform your healthcare practice.</p>
+                </div>
 
-            <div class="form-group">
-                <label>Full Name</label>
-                <input type="text" name="name" required placeholder="Dr. John Doe">
-            </div>
-            <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" name="email" required placeholder="email@hospital.com">
-            </div>
-            <div class="form-group">
-                <label>Phone Number</label>
-                <input type="tel" name="phone" placeholder="+91 8463846946">
-            </div>
-            <div class="form-group">
-                <label>I represent a...</label>
-                <select name="type">
-                    <option>Doctor / Private Practice</option>
-                    <option>Hospital / Clinic</option>
-                    <option>Nursing Home</option>
-                    <option>Other</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Message</label>
-                <textarea name="message" rows="5" required placeholder="How can we help you?"></textarea>
-            </div>
-            <button type="submit">Send Message</button>
-        </form>
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="contact-icon email">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Us</h3>
+                        <p>Drop us a line anytime</p>
+                        <a href="mailto:contact@medstat.in">contact@medstat.in</a>
+                    </div>
 
-        <div class="contact-info">
-            <div class="contact-item"><i class="fa-solid fa-envelope"></i> contact@healthconnect.in</div>
-            <div class="contact-item"><i class="fa-brands fa-whatsapp"></i> +91 8463846946</div>
+                    <div class="contact-card">
+                        <div class="contact-icon phone">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Call Us</h3>
+                        <p>Mon-Sat, 9 AM - 6 PM IST</p>
+                        <a href="tel:+918463846946">+91 84638 46946</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p>Quick responses guaranteed</p>
+                        <a href="https://wa.me/918463846946" target="_blank">Chat with us</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon location">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Location</h3>
+                        <p>Based in India</p>
+                        <span class="location-text">Serving healthcare providers nationwide</span>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Contact Form -->
+            <div class="form-section">
+                <div class="form-card">
+                    <h2>Send us a Message</h2>
+                    <p class="form-subtitle">Fill out the form below and we'll get back to you within 24 hours.</p>
+
+                    <!-- Form now handled by FastAPI backend -->
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" name="name" required placeholder="Dr. John Doe">
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email Address</label>
+                            <input type="email" name="email" required placeholder="email@hospital.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Phone Number</label>
+                            <input type="tel" name="phone" placeholder="+91 98765 43210">
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-building"></i> I represent a...</label>
+                            <select name="type">
+                                <option>Doctor / Private Practice</option>
+                                <option>Hospital / Clinic</option>
+                                <option>Nursing Home</option>
+                                <option>Healthcare IT</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-comment"></i> Message</label>
+                            <textarea name="message" rows="5" required placeholder="How can we help you?"></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/form-handler.js"></script>
 </body>
 
 </html>

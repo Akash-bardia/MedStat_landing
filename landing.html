@@ -12,13 +12,14 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/mobile.css" rel="stylesheet">
     <link href="css/core-ai-fix.css" rel="stylesheet">
+    <link href="css/bsp-swipe.css" rel="stylesheet">
 </head>
 
 <body>
 
     <header>
         <a href="landing.html" class="logo">
-            <i class="fa-solid fa-heart-pulse"></i> MedStat
+            MedStat
         </a>
         <nav class="nav-links">
             <a href="landing.html">Home</a>
@@ -77,10 +78,10 @@
                     <i class="fa-solid fa-brain fa-2x" style="opacity: 1; z-index: 10;"></i>
                     <span style="font-size: 0.8rem; margin-top: 5px; opacity: 1; z-index: 10;">Core AI</span>
                 </div>
-                <div class="msp-node n1"><i class="fa-solid fa-user-doctor"></i> Doctor</div>
-                <div class="msp-node n2"><i class="fa-solid fa-notes-medical"></i> Triage</div>
-                <div class="msp-node n3"><i class="fa-solid fa-comments"></i> Chat</div>
-                <div class="msp-node n4"><i class="fa-solid fa-file-medical"></i> Records</div>
+                <div class="msp-node n1">Doctor</div>
+                <div class="msp-node n2">Data</div>
+                <div class="msp-node n3">Analytics</div>
+                <div class="msp-node n4">Optimization</div>
             </div>
         </div>
     </section>
@@ -130,7 +131,8 @@
     <section class="tech-showcase" id="features">
         <center>
             <h2 class="section-title fade-up">Powered by Advanced Technology</h2>
-            <p class="section-subtitle fade-up">Our platform integrates cutting-edge tools to streamline every step of
+            <p class="section-subtitle fade-up" style="margin-bottom: 30px;">Our platform integrates cutting-edge tools
+                to streamline every step of
                 the
                 care journey.</p>
         </center>
@@ -139,13 +141,15 @@
         <!-- Feature 1: Data to Insights (Simplified 3-Step) -->
         <div class="feature-row" style="background: #e3f2fd; padding: 50px 40px; border-radius: 16px;">
             <div class="feature-text fade-up">
-                <h2 class="fade-up" style="font-size: 1.8rem; margin-bottom: 15px;">From Data to Decisions</h2>
+                <h2 class="fade-up" style="font-size: 1.8rem; margin-bottom: 15px;">Unifying All Healthcare Operations
+                </h2>
                 <p class="fade-up" style="color: #666; margin-bottom: 20px; line-height: 1.6;">
-                    See how MedStat turns everyday hospital activities into lifesaving insights.
+                    Connect every data point—from clinical records and real-time vitals to supply chain inventory and
+                    appointment scheduling.
                 </p>
                 <p class="fade-up" style="color: #666; margin-bottom: 30px; line-height: 1.6;">
-                    Our AI analyzes your hospital data in real-time and provides actionable recommendations to improve
-                    patient care.
+                    MedStat's orchestration engine turns isolated metrics into predictive decisions, reducing stockouts
+                    and minimizing no-shows.
                 </p>
 
                 <!-- Step Labels Text -->
@@ -156,58 +160,306 @@
 
             <div class="feature-visual fade-up">
                 <!-- Simple 3-Stage Pipeline -->
-                <div class="data-decision-flow">
-                    <!-- Left: Data Inputs -->
-                    <div class="dd-group left">
-                        <div class="dd-icon-box input-box d1">
-                            <i class="fa-solid fa-hospital-user"></i> Patients
+                <!-- Animated Data Flow Pipeline -->
+                <div class="data-flow-pipeline animate-when-visible">
+
+                    <!-- Stage 1: Data Sources (Left) -->
+                    <div class="flow-stage sources">
+                        <div class="stage-label">Data Sources</div>
+                        <div class="source-items">
+                            <div class="source-item" style="animation-delay: 0s;">
+                                <i class="fa-solid fa-file-medical"></i>
+                                <span>Clinical</span>
+                            </div>
+                            <div class="source-item" style="animation-delay: 0.2s;">
+                                <i class="fa-solid fa-boxes-stacked"></i>
+                                <span>Inventory</span>
+                            </div>
+                            <div class="source-item" style="animation-delay: 0.4s;">
+                                <i class="fa-solid fa-calendar-check"></i>
+                                <span>Scheduling</span>
+                            </div>
+                            <div class="source-item" style="animation-delay: 0.6s;">
+                                <i class="fa-solid fa-heart-pulse"></i>
+                                <span>IoMT</span>
+                            </div>
                         </div>
-                        <div class="dd-icon-box input-box d2">
-                            <i class="fa-solid fa-heart-pulse"></i> Vitals
-                        </div>
-                        <div class="dd-icon-box input-box d3">
-                            <i class="fa-solid fa-prescription-bottle-medical"></i> Medicines
+
+                        <!-- Animated Particles -->
+                        <div class="flow-particles">
+                            <div class="particle" style="top: 20%; animation-delay: 0s;"></div>
+                            <div class="particle" style="top: 40%; animation-delay: 1s;"></div>
+                            <div class="particle" style="top: 60%; animation-delay: 2s;"></div>
+                            <div class="particle" style="top: 80%; animation-delay: 3s;"></div>
                         </div>
                     </div>
 
-                    <!-- Arrow In -->
-                    <div class="dd-arrow-container">
-                        <i class="fa-solid fa-arrow-right dd-arrow in-arrow"></i>
+                    <!-- Connector Arrow -->
+                    <div class="flow-connector">
+                        <i class="fa-solid fa-arrow-right"></i>
                     </div>
 
-                    <!-- Center: AI Core -->
-                    <div class="dd-core-container">
-                        <div class="dd-core">
-                            <i class="fa-solid fa-brain"></i>
+                    <!-- Stage 2: Neural Engine (Center) -->
+                    <div class="flow-stage processor">
+                        <div class="neural-engine">
+                            <div class="engine-ring-outer"></div>
+                            <div class="engine-ring-inner"></div>
+                            <div class="engine-core">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+                            <div class="engine-glow"></div>
                         </div>
-                        <p>AI Analysis</p>
-                        <small>Processing...</small>
+                        <div class="engine-label">AI Processing</div>
                     </div>
 
-                    <!-- Arrow Out -->
-                    <div class="dd-arrow-container">
-                        <i class="fa-solid fa-arrow-right dd-arrow out-arrow"></i>
+                    <!-- Connector Arrow -->
+                    <div class="flow-connector">
+                        <i class="fa-solid fa-arrow-right"></i>
                     </div>
 
-                    <!-- Right: Insights -->
-                    <div class="dd-group right">
-                        <div class="dd-icon-box output-box o1">
-                            Order supplies
+                    <!-- Stage 3: Insights (Right) -->
+                    <div class="flow-stage insights">
+                        <div class="stage-label">Insights</div>
+                        <div class="insight-items">
+                            <div class="insight-item" style="animation-delay: 0s;">
+                                <!-- <i class="fa-solid fa-chart-line"></i> -->
+                                <div>
+                                    <div class="insight-title">Predictive Analytics</div>
+                                    <div class="insight-sub">Forecasting & Trends</div>
+                                </div>
+                            </div>
+                            <div class="insight-item" style="animation-delay: 0.3s;">
+                                <!-- <i class="fa-solid fa-brain"></i> -->
+                                <div>
+                                    <div class="insight-title">Operational Intelligence</div>
+                                    <div class="insight-sub">Real-time Optimization</div>
+                                </div>
+                            </div>
+                            <div class="insight-item" style="animation-delay: 0.6s;">
+                                <!-- <i class="fa-solid fa-lightbulb"></i> -->
+                                <div>
+                                    <div class="insight-title">Clinical Insights</div>
+                                    <div class="insight-sub">Evidence-based Decisions</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="dd-icon-box output-box o2">
-                            ICU near full
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Feature: Multimodal & Linguistic AI -->
+        <div class="feature-row">
+            <div class="feature-text fade-up">
+                <h2>Linguistic Disparities & Multi-modalities</h2>
+                <p>Bridge communication gaps and unify diverse data sources. Our AI seamlessly processes voice, text,
+                    and image data across multiple languages.</p>
+                <div class="feature-checklist">
+                    <div class="check-item">
+                        <i class="fa-solid fa-language"></i>
+                        <span><strong>Multi-lingual Support:</strong> Real-time translation of languages.</span>
+                    </div>
+                    <div class="check-item">
+                        <i class="fa-solid fa-microphone-lines"></i>
+                        <span><strong>Voice-to-Data:</strong> Transcribe and analyze spoken consultations.</span>
+                    </div>
+                    <div class="check-item">
+                        <i class="fa-solid fa-file-image"></i>
+                        <span><strong>Vision Analysis:</strong> Extract insights from medical images.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-visual fade-up">
+                <div class="polyglot-interactive-container">
+                    <!-- Header -->
+                    <div class="poly-header">
+                        <i class="fa-solid fa-language"></i>
+                        <span>Choose Input Modality</span>
+                    </div>
+
+                    <!-- Three Input Boxes -->
+                    <div class="poly-input-row">
+                        <!-- Voice Input Box -->
+                        <div class="poly-input-box" id="voice-box" onclick="togglePolyBox('voice')">
+                            <div class="poly-box-icon voice">
+                                <i class="fa-solid fa-microphone"></i>
+                            </div>
+                            <div class="poly-box-label">Voice Input</div>
+                            <div class="poly-box-hint">Tap to see transcriptions</div>
                         </div>
-                        <div class="dd-icon-box output-box o3">
-                            Busy week ahead
+
+                        <!-- Image Input Box -->
+                        <div class="poly-input-box" id="image-box" onclick="togglePolyBox('image')">
+                            <div class="poly-box-icon image">
+                                <i class="fa-solid fa-images"></i>
+                            </div>
+                            <div class="poly-box-label">Image Analysis</div>
+                            <div class="poly-box-hint">Tap to analyze</div>
+                        </div>
+
+                        <!-- Text Input Box -->
+                        <div class="poly-input-box" id="text-box" onclick="togglePolyBox('text')">
+                            <div class="poly-box-icon text">
+                                <i class="fa-solid fa-keyboard"></i>
+                            </div>
+                            <div class="poly-box-label">Text Input</div>
+                            <div class="poly-box-hint">Tap to see languages</div>
+                        </div>
+                    </div>
+
+                    <!-- Expanded Content Panels -->
+                    <!-- Voice Panel -->
+                    <div class="poly-panel" id="voice-panel">
+                        <div class="poly-panel-header">
+                            <i class="fa-solid fa-microphone"></i> Voice Transcription Demo
+                            <span class="poly-close" onclick="closePolyPanel()">&times;</span>
+                        </div>
+                        <div class="voice-demo-container">
+                            <div class="voice-rows-container">
+                                <!-- Hindi Row -->
+                                <div class="voice-demo-row" id="v-row-hindi">
+                                    <div class="v-row-controls">
+                                        <div class="v-small-mic">
+                                            <i class="fa-solid fa-microphone"></i>
+                                            <div class="v-mic-ripple"></div>
+                                        </div>
+                                        <div class="v-small-wave">
+                                            <span></span><span></span><span></span><span></span><span></span>
+                                        </div>
+                                    </div>
+                                    <div class="v-row-content">
+                                        <div class="v-row-label hindi"><span class="lang-dot-small"></span> Hindi</div>
+                                        <div class="v-row-text" id="v-text-hindi"></div>
+                                    </div>
+                                </div>
+
+                                <!-- English Row -->
+                                <div class="voice-demo-row" id="v-row-english">
+                                    <div class="v-row-controls">
+                                        <div class="v-small-mic">
+                                            <i class="fa-solid fa-microphone"></i>
+                                            <div class="v-mic-ripple"></div>
+                                        </div>
+                                        <div class="v-small-wave">
+                                            <span></span><span></span><span></span><span></span><span></span>
+                                        </div>
+                                    </div>
+                                    <div class="v-row-content">
+                                        <div class="v-row-label english"><span class="lang-dot-small"></span> English
+                                        </div>
+                                        <div class="v-row-text" id="v-text-english"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Hinglish Row -->
+                                <div class="voice-demo-row" id="v-row-hinglish">
+                                    <div class="v-row-controls">
+                                        <div class="v-small-mic">
+                                            <i class="fa-solid fa-microphone"></i>
+                                            <div class="v-mic-ripple"></div>
+                                        </div>
+                                        <div class="v-small-wave">
+                                            <span></span><span></span><span></span><span></span><span></span>
+                                        </div>
+                                    </div>
+                                    <div class="v-row-content">
+                                        <div class="v-row-label hinglish"><span class="lang-dot-small"></span> Hinglish
+                                        </div>
+                                        <div class="v-row-text" id="v-text-hinglish"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image Panel -->
+                    <div class="poly-panel" id="image-panel">
+                        <div class="poly-panel-header">
+                            <i class="fa-solid fa-image"></i> Image Input Demo
+                            <span class="poly-close" onclick="closePolyPanel()">&times;</span>
+                        </div>
+                        <div class="image-demo-container">
+                            <!-- Stage 1: Upload Click Animation -->
+                            <div class="image-demo-stage" id="image-stage-1">
+                                <div class="upload-demo-area">
+                                    <div class="demo-upload-box">
+                                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                                        <span>Upload Image</span>
+                                    </div>
+                                    <div class="demo-cursor image-cursor">
+                                        <i class="fa-solid fa-arrow-pointer"></i>
+                                    </div>
+                                    <div class="upload-click-ripple"></div>
+                                </div>
+                                <div class="demo-status uploading-status">
+                                    <i class="fa-solid fa-hand-pointer"></i> Click to upload...
+                                </div>
+                            </div>
+
+                            <!-- Stage 2: Image Uploading -->
+                            <div class="image-demo-stage" id="image-stage-2">
+                                <div class="uploading-visual">
+                                    <div class="image-preview-loading">
+                                        <i class="fa-solid fa-image"></i>
+                                        <div class="upload-progress-ring">
+                                            <svg viewBox="0 0 36 36">
+                                                <circle class="progress-bg" cx="18" cy="18" r="16"></circle>
+                                                <circle class="progress-bar-ring" cx="18" cy="18" r="16"></circle>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="demo-status uploading-status">
+                                    <div class="upload-spinner"></div> Uploading image...
+                                </div>
+                            </div>
+
+                            <!-- Stage 3: Input Received (No Analysis) -->
+                            <div class="image-demo-stage" id="image-stage-3">
+                                <div class="analysis-demo-content centered">
+                                    <div class="analysis-image-box">
+                                        <img src="severe_rash_noface_1769691099947.png" alt="Skin Rash">
+                                        <div class="scan-overlay">
+                                            <div class="scan-beam"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="demo-status success" id="image-success-status">
+                                    <i class="fa-solid fa-circle-check"></i> Image Input Received
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text Panel -->
+                    <div class="poly-panel" id="text-panel">
+                        <div class="poly-panel-header">
+                            <i class="fa-solid fa-keyboard"></i> Text Inputs
+                            <span class="poly-close" onclick="closePolyPanel()">&times;</span>
+                        </div>
+                        <div class="poly-text-grid">
+                            <div class="poly-text-card hindi" id="text-card-hindi">
+                                <div class="text-lang-badge">Hindi</div>
+                                <div class="text-content" id="text-content-hindi"></div>
+                            </div>
+                            <div class="poly-text-card english" id="text-card-english">
+                                <div class="text-lang-badge">English</div>
+                                <div class="text-content" id="text-content-english"></div>
+                            </div>
+                            <div class="poly-text-card hinglish" id="text-card-hinglish">
+                                <div class="text-lang-badge">Hinglish</div>
+                                <div class="text-content" id="text-content-hinglish"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-
         <!-- Feature 2: Queue Management System -->
-        <div class="feature-row reverse">
+        <div class="feature-row reverse" style="margin: 100px;">
             <div class="feature-text fade-up">
                 <h2>Queue Management System</h2>
                 <p>Real-time patient tracking and automated status updates. Keep your waiting room organized and
@@ -283,14 +535,13 @@
         </div>
 
         <!-- Feature 3: Smart Consultation Flow (New Section) -->
-        <div class="feature-row">
+        <div class="feature-row" style="margin: 100px;">
             <div class="feature-text fade-up">
                 <h2>Smart Consultation Automation</h2>
-                <div
-                    style="background: #f0f7ff; padding: 25px; border-radius: 12px; margin-bottom: 20px; border-left: 5px solid var(--primary);">
+                <div style="padding: 5px; border-radius: 12px; margin-bottom: 20px;">
                     <p style="margin: 0; font-weight: 600; color: var(--primary); margin-bottom: 10px;"><i
                             class="fa-solid fa-wand-magic-sparkles"></i> One Click Action</p>
-                    <p style="margin: 0; font-size: 0.95rem; color: #555; line-height: 1.6;">
+                    <p style="margin: 0; font-size: 0.9rem; color: #555; line-height: 1.6;">
                         When the doctor clicks <strong>"Next Patient"</strong>, our AI engine instantly takes over:
                     </p>
                     <ul style="margin-top: 15px; margin-bottom: 0; padding-left: 20px; color: #555;">
@@ -357,34 +608,34 @@
 
                     <!-- Stage 4: SOAP Generated -->
                     <div class="consultation-stage" data-stage="3">
-                        <div style="margin-bottom: 15px;">
-                            <p style="color: var(--primary); font-weight: 600; margin-bottom: 15px;">
+                        <div style="margin-bottom: 8px;">
+                            <p style="color: var(--primary); font-weight: 600; margin: 0 0 8px 0; font-size: 0.95rem;">
                                 <i class="fa-solid fa-check-circle"></i> SOAP Notes Generated
                             </p>
                         </div>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;">
                             <div class="soap-item"
-                                style="background: #e3f2fd; padding: 12px; border-radius: 8px; border-left: 3px solid var(--primary);">
-                                <strong style="color: var(--primary);">Subjective</strong>
-                                <p style="font-size: 0.75rem; color: #666; margin: 5px 0 0 0;">Patient symptoms</p>
+                                style="background: #e3f2fd; padding: 8px 10px; border-radius: 6px; border-left: 3px solid var(--primary);">
+                                <strong style="color: var(--primary); font-size: 0.85rem;">Subjective</strong>
+                                <p style="font-size: 0.7rem; color: #666; margin: 3px 0 0 0;">Patient symptoms</p>
                             </div>
                             <div class="soap-item"
-                                style="background: #e8f5e9; padding: 12px; border-radius: 8px; border-left: 3px solid #2e7d32;">
-                                <strong style="color: #2e7d32;">Objective</strong>
-                                <p style="font-size: 0.75rem; color: #666; margin: 5px 0 0 0;">Vitals & findings</p>
+                                style="background: #e8f5e9; padding: 8px 10px; border-radius: 6px; border-left: 3px solid #2e7d32;">
+                                <strong style="color: #2e7d32; font-size: 0.85rem;">Objective</strong>
+                                <p style="font-size: 0.7rem; color: #666; margin: 3px 0 0 0;">Vitals & findings</p>
                             </div>
                             <div class="soap-item"
-                                style="background: #fff3e0; padding: 12px; border-radius: 8px; border-left: 3px solid #ef6c00;">
-                                <strong style="color: #ef6c00;">Assessment</strong>
-                                <p style="font-size: 0.75rem; color: #666; margin: 5px 0 0 0;">AI diagnosis</p>
+                                style="background: #fff3e0; padding: 8px 10px; border-radius: 6px; border-left: 3px solid #ef6c00;">
+                                <strong style="color: #ef6c00; font-size: 0.85rem;">Assessment</strong>
+                                <p style="font-size: 0.7rem; color: #666; margin: 3px 0 0 0;">AI diagnosis</p>
                             </div>
                             <div class="soap-item"
-                                style="background: #f3e5f5; padding: 12px; border-radius: 8px; border-left: 3px solid #7b1fa2;">
-                                <strong style="color: #7b1fa2;">Plan</strong>
-                                <p style="font-size: 0.75rem; color: #666; margin: 5px 0 0 0;">Treatment steps</p>
+                                style="background: #f3e5f5; padding: 8px 10px; border-radius: 6px; border-left: 3px solid #7b1fa2;">
+                                <strong style="color: #7b1fa2; font-size: 0.85rem;">Plan</strong>
+                                <p style="font-size: 0.7rem; color: #666; margin: 3px 0 0 0;">Treatment steps</p>
                             </div>
                         </div>
-                        <p style="color: #999; font-size: 0.85rem;">Ready for next patient...</p>
+                        <p style="color: #999; font-size: 0.8rem; margin: 0;">Ready for next patient...</p>
                     </div>
                 </div>
 
@@ -551,7 +802,7 @@
         <!-- BSP Toolkit Library (Integrated into Tech Showcase) -->
         <div class="feature-row reverse" style="margin-bottom: 0; margin-top: 50px; padding-top: 40px;">
             <div class="feature-text fade-up">
-                <h2 style="font-size: 1.8rem; margin-bottom: 15px;">BSP Toolkit Library</h2>
+                <h2 style="font-size: 1.5rem; margin-bottom: 15px;">BSP Toolkit Library</h2>
                 <p style="color: #666; margin-bottom: 20px; line-height: 1.6;">
                     Specialized algorithms for biomedical signal analysis and processing. Empower your practice with
                     clinical-grade AI tools.
@@ -590,57 +841,71 @@
                     </div>
 
                     <!-- Tool Cards Grid -->
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
-                        <!-- Card 1: Atrial Fibrillation -->
-                        <div style="background: white; border: 2px solid #f5f5f5; border-radius: 12px; padding: 20px; transition: all 0.3s; cursor: pointer;"
-                            onmouseover="this.style.borderColor='#e3f2fd'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.08)';"
-                            onmouseout="this.style.borderColor='#f5f5f5'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-                            <div
-                                style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                    <div class="bsp-cards-container">
+                        <div class="bsp-cards">
+                            <!-- Card 1: Atrial Fibrillation -->
+                            <div class="bsp-card"
+                                style="background: white; border: 2px solid #f5f5f5; border-radius: 12px; padding: 20px; transition: all 0.3s; cursor: pointer;"
+                                onmouseover="this.style.borderColor='#e3f2fd'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.08)';"
+                                onmouseout="this.style.borderColor='#f5f5f5'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">
                                 <div
-                                    style="width: 45px; height: 45px; background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(211,47,47,0.15);">
-                                    <i class="fa-solid fa-heart-pulse" style="color: #d32f2f; font-size: 1.3rem;"></i>
+                                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                    <div
+                                        style="width: 45px; height: 45px; background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(211,47,47,0.15);">
+                                        <i class="fa-solid fa-heart-pulse"
+                                            style="color: #d32f2f; font-size: 1.3rem;"></i>
+                                    </div>
+                                    <span
+                                        style="background: #f5f5f5; color: #78909c; padding: 4px 10px; border-radius: 20px; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px;">Cardiology</span>
                                 </div>
-                                <span
-                                    style="background: #f5f5f5; color: #78909c; padding: 4px 10px; border-radius: 20px; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px;">Cardiology</span>
+                                <h4
+                                    style="margin-bottom: 8px; font-size: 1rem; color: var(--text-dark); font-weight: 700;">
+                                    Atrial Fibrillation Detector</h4>
+                                <p style="color: #78909c; font-size: 0.85rem; margin-bottom: 15px; line-height: 1.5;">
+                                    Deep
+                                    learning model for AFib detection from PPG and ECG signals.</p>
+                                <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                                    <span
+                                        style="background: #e3f2fd; color: var(--primary); padding: 4px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 600;">ECG</span>
+                                    <span
+                                        style="background: #e3f2fd; color: var(--primary); padding: 4px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 600;">PPG</span>
+                                    <span
+                                        style="background: #f5f5f5; color: #78909c; padding: 4px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 600;">Real-time</span>
+                                </div>
                             </div>
-                            <h4 style="margin-bottom: 8px; font-size: 1rem; color: var(--text-dark); font-weight: 700;">
-                                Atrial Fibrillation Detector</h4>
-                            <p style="color: #78909c; font-size: 0.85rem; margin-bottom: 15px; line-height: 1.5;">Deep
-                                learning model for AFib detection from PPG and ECG signals.</p>
-                            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                                <span
-                                    style="background: #e3f2fd; color: var(--primary); padding: 4px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 600;">ECG</span>
-                                <span
-                                    style="background: #e3f2fd; color: var(--primary); padding: 4px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 600;">PPG</span>
-                                <span
-                                    style="background: #f5f5f5; color: #78909c; padding: 4px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 600;">Real-time</span>
+
+                            <!-- Card 2: Sleep Apnea -->
+                            <div class="bsp-card"
+                                style="background: white; border: 2px solid #f5f5f5; border-radius: 12px; padding: 20px; transition: all 0.3s; cursor: pointer;"
+                                onmouseover="this.style.borderColor='#e3f2fd'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.08)';"
+                                onmouseout="this.style.borderColor='#f5f5f5'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                    <div
+                                        style="width: 45px; height: 45px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(25,118,210,0.15);">
+                                        <i class="fa-solid fa-lungs" style="color: #1976d2; font-size: 1.3rem;"></i>
+                                    </div>
+                                    <span
+                                        style="background: #f5f5f5; color: #78909c; padding: 4px 10px; border-radius: 20px; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px;">Respiratory</span>
+                                </div>
+                                <h4
+                                    style="margin-bottom: 8px; font-size: 1rem; color: var(--text-dark); font-weight: 700;">
+                                    Sleep Apnea Analyzer</h4>
+                                <p style="color: #78909c; font-size: 0.85rem; margin-bottom: 15px; line-height: 1.5;">
+                                    Analyzes SpO2 dips and breathing patterns for sleep disorder detection.</p>
+                                <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                                    <span
+                                        style="background: #e3f2fd; color: var(--primary); padding: 4px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 600;">SpO2</span>
+                                    <span
+                                        style="background: #e8f5e9; color: #2e7d32; padding: 4px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 600;">Sleep</span>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Card 2: Sleep Apnea -->
-                        <div style="background: white; border: 2px solid #f5f5f5; border-radius: 12px; padding: 20px; transition: all 0.3s; cursor: pointer;"
-                            onmouseover="this.style.borderColor='#e3f2fd'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.08)';"
-                            onmouseout="this.style.borderColor='#f5f5f5'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-                            <div
-                                style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-                                <div
-                                    style="width: 45px; height: 45px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(25,118,210,0.15);">
-                                    <i class="fa-solid fa-lungs" style="color: #1976d2; font-size: 1.3rem;"></i>
-                                </div>
-                                <span
-                                    style="background: #f5f5f5; color: #78909c; padding: 4px 10px; border-radius: 20px; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px;">Respiratory</span>
-                            </div>
-                            <h4 style="margin-bottom: 8px; font-size: 1rem; color: var(--text-dark); font-weight: 700;">
-                                Sleep Apnea Analyzer</h4>
-                            <p style="color: #78909c; font-size: 0.85rem; margin-bottom: 15px; line-height: 1.5;">
-                                Analyzes SpO2 dips and breathing patterns for sleep disorder detection.</p>
-                            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                                <span
-                                    style="background: #e3f2fd; color: var(--primary); padding: 4px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 600;">SpO2</span>
-                                <span
-                                    style="background: #e8f5e9; color: #2e7d32; padding: 4px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 600;">Sleep</span>
-                            </div>
+                        <!-- Swipe Indicators (visible on mobile) -->
+                        <div class="swipe-indicators">
+                            <span class="swipe-dot active"></span>
+                            <span class="swipe-dot"></span>
                         </div>
                     </div>
 
@@ -773,6 +1038,305 @@
             observer.observe(el);
         });
 
+        // Polyglot Interactive Section Functions
+        let voiceDemoTimeout = null;
+        let imageDemoTimeout = null;
+        let textDemoTimeout = null;
+
+        function togglePolyBox(type) {
+            // Hide the input row
+            const inputRow = document.querySelector('.poly-input-row');
+            if (inputRow) inputRow.classList.add('hidden');
+
+            const isActive = document.getElementById(type + '-box').classList.contains('active');
+
+            // Clear any running voice/image/text demo
+            if (voiceDemoTimeout) {
+                clearTimeout(voiceDemoTimeout);
+                voiceDemoTimeout = null;
+            }
+            if (imageDemoTimeout) {
+                clearTimeout(imageDemoTimeout);
+                imageDemoTimeout = null;
+            }
+            if (textDemoTimeout) {
+                clearTimeout(textDemoTimeout);
+                textDemoTimeout = null;
+            }
+
+            // Remove active from all boxes
+            document.querySelectorAll('.poly-input-box').forEach(box => {
+                box.classList.remove('active');
+            });
+
+            // Hide all panels
+            document.querySelectorAll('.poly-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+
+            // Activate clicked box
+            const box = document.getElementById(type + '-box');
+            const panel = document.getElementById(type + '-panel');
+
+            if (box && panel) {
+                box.classList.add('active');
+                panel.classList.add('active');
+
+                // Start demos based on type
+                if (type === 'voice') {
+                    playVoiceDemo();
+                } else if (type === 'image') {
+                    playImageDemo();
+                } else if (type === 'text') {
+                    playTextDemo();
+                }
+            }
+        }
+
+        function closePolyPanel() {
+            // Show the input row
+            const inputRow = document.querySelector('.poly-input-row');
+            if (inputRow) inputRow.classList.remove('hidden');
+
+            if (voiceDemoTimeout) {
+                clearTimeout(voiceDemoTimeout);
+                voiceDemoTimeout = null;
+            }
+            if (imageDemoTimeout) {
+                clearTimeout(imageDemoTimeout);
+                imageDemoTimeout = null;
+            }
+            if (textDemoTimeout) {
+                clearTimeout(textDemoTimeout);
+                textDemoTimeout = null;
+            }
+
+            document.querySelectorAll('.poly-input-box').forEach(box => {
+                box.classList.remove('active');
+            });
+            document.querySelectorAll('.poly-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+            // Reset demos
+            resetVoiceDemo();
+            resetImageDemo();
+            resetTextDemo();
+        }
+
+        // Voice Demo Functions
+        // Voice Demo Functions
+        function resetVoiceDemo() {
+            // Reset rows
+            const rows = ['v-row-hindi', 'v-row-english', 'v-row-hinglish'];
+            rows.forEach(id => {
+                const row = document.getElementById(id);
+                if (row) row.classList.remove('active', 'recording');
+            });
+
+            // Clear texts
+            ['v-text-hindi', 'v-text-english', 'v-text-hinglish'].forEach(id => {
+                const text = document.getElementById(id);
+                if (text) text.textContent = '';
+            });
+        }
+
+        function playVoiceDemo() {
+            resetVoiceDemo();
+            // Start the sequential flow
+            startSequentialRows();
+        }
+
+        function startSequentialRows() {
+            const rows = [
+                { rowId: 'v-row-hindi', textId: 'v-text-hindi', text: '"मुझे सांस लेने में तकलीफ है"' },
+                { rowId: 'v-row-english', textId: 'v-text-english', text: '"I have difficulty breathing"' },
+                { rowId: 'v-row-hinglish', textId: 'v-text-hinglish', text: '"Meri saans phool rahi hai"' }
+            ];
+
+            let currentIndex = 0;
+
+            function processRow() {
+                if (currentIndex >= rows.length) return;
+
+                const data = rows[currentIndex];
+                const row = document.getElementById(data.rowId);
+                const textEl = document.getElementById(data.textId);
+
+                if (row && textEl) {
+                    // 1. Show Row
+                    row.classList.add('active');
+
+                    // 2. Start Recording (Mic + Wave)
+                    // Small delay to make it feel natural
+                    voiceDemoTimeout = setTimeout(() => {
+                        row.classList.add('recording');
+
+                        // 3. Record for 1.5s
+                        voiceDemoTimeout = setTimeout(() => {
+                            row.classList.remove('recording');
+
+                            // 4. Type Text
+                            let charIndex = 0;
+                            function typeChar() {
+                                if (charIndex < data.text.length) {
+                                    textEl.textContent += data.text[charIndex];
+                                    charIndex++;
+                                    voiceDemoTimeout = setTimeout(typeChar, 40);
+                                } else {
+                                    // Row complete, move to next
+                                    currentIndex++;
+                                    voiceDemoTimeout = setTimeout(processRow, 800);
+                                }
+                            }
+                            typeChar();
+
+                        }, 1500);
+                    }, 500);
+                }
+            }
+
+            // Initial start
+            voiceDemoTimeout = setTimeout(processRow, 500);
+        }
+
+        // Image Demo Animation Functions (Simplified)
+        function resetImageDemo() {
+            if (imageDemoTimeout) {
+                clearTimeout(imageDemoTimeout);
+                imageDemoTimeout = null;
+            }
+
+            const stage1 = document.getElementById('image-stage-1');
+            const stage2 = document.getElementById('image-stage-2');
+            const stage3 = document.getElementById('image-stage-3');
+
+            [stage1, stage2, stage3].forEach(s => {
+                if (s) s.classList.remove('active');
+            });
+
+            // Reset analysis elements
+            const imageBox = document.querySelector('.analysis-image-box');
+            if (imageBox) imageBox.classList.remove('scan-complete');
+
+            // Reset results if any (though we removed them from HTML, good safety)
+            document.querySelectorAll('.live-result-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            const successStatus = document.getElementById('image-success-status');
+            if (successStatus) successStatus.classList.remove('show');
+        }
+
+        function playImageDemo() {
+            resetImageDemo();
+
+            const stage1 = document.getElementById('image-stage-1');
+            const stage2 = document.getElementById('image-stage-2');
+            const stage3 = document.getElementById('image-stage-3');
+
+            // Stage 1: Cursor clicking upload
+            if (stage1) stage1.classList.add('active');
+
+            // After 2.5s, move to uploading stage
+            imageDemoTimeout = setTimeout(() => {
+                if (stage1) stage1.classList.remove('active');
+                if (stage2) stage2.classList.add('active');
+
+                // After 2s, move to input received stage
+                imageDemoTimeout = setTimeout(() => {
+                    if (stage2) stage2.classList.remove('active');
+                    if (stage3) stage3.classList.add('active');
+
+                    // Show success after short delay
+                    imageDemoTimeout = setTimeout(() => {
+                        const successStatus = document.getElementById('image-success-status');
+                        if (successStatus) successStatus.classList.add('show');
+                    }, 500);
+
+                }, 2000);
+            }, 2500);
+        }
+
+        // Removed startAnalysisAnimation function as it's no longer needed
+
+
+        // Text Demo Animation Functions
+        function resetTextDemo() {
+            if (textDemoTimeout) {
+                clearTimeout(textDemoTimeout);
+                textDemoTimeout = null;
+            }
+
+            const cards = ['text-card-hindi', 'text-card-english', 'text-card-hinglish'];
+            cards.forEach(id => {
+                const card = document.getElementById(id);
+                if (card) card.classList.remove('active');
+            });
+
+            const texts = ['text-content-hindi', 'text-content-english', 'text-content-hinglish'];
+            texts.forEach(id => {
+                const text = document.getElementById(id);
+                if (text) text.textContent = '';
+            });
+        }
+
+        function playTextDemo() {
+            resetTextDemo();
+
+            const textData = [
+                {
+                    cardId: 'text-card-hindi',
+                    textId: 'text-content-hindi',
+                    text: 'पिछले 3 दिनों से बुखार और सिरदर्द है। दवाई लेने के बाद भी आराम नहीं मिला।'
+                },
+                {
+                    cardId: 'text-card-english',
+                    textId: 'text-content-english',
+                    text: 'Patient reports persistent headache and mild fever. No improvement with OTC medication.'
+                },
+                {
+                    cardId: 'text-card-hinglish',
+                    textId: 'text-content-hinglish',
+                    text: 'Meri tabiyat kharab hai, 3 din se fever chal raha hai aur medicine se bhi relief nahi mil raha.'
+                }
+            ];
+
+            let currentIndex = 0;
+
+            function processTextCard() {
+                if (currentIndex >= textData.length) return;
+
+                const data = textData[currentIndex];
+                const card = document.getElementById(data.cardId);
+                const textEl = document.getElementById(data.textId);
+
+                if (card && textEl) {
+                    // Show card
+                    card.classList.add('active');
+
+                    // Start typing after short delay
+                    textDemoTimeout = setTimeout(() => {
+                        let charIndex = 0;
+                        function typeChar() {
+                            if (charIndex < data.text.length) {
+                                textEl.textContent += data.text[charIndex];
+                                charIndex++;
+                                textDemoTimeout = setTimeout(typeChar, 30);
+                            } else {
+                                // Done typing, move to next
+                                currentIndex++;
+                                textDemoTimeout = setTimeout(processTextCard, 800);
+                            }
+                        }
+                        typeChar();
+                    }, 300);
+                }
+            }
+
+            // Start first card
+            textDemoTimeout = setTimeout(processTextCard, 500);
+        }
+
         // Consultation Animation
         function playConsultationVideo() {
             const stages = document.querySelectorAll('.consultation-stage');
@@ -805,7 +1369,7 @@
                     setTimeout(() => {
                         currentStage = 0;
                         nextStage();
-                    }, 4000);
+                    }, 5000); // Increased to 5 seconds for SOAP notes visibility
                 }
             }
 
@@ -817,8 +1381,60 @@
         } else {
             playConsultationVideo();
         }
+
+        // BSP Toolkit Card Swipe Indicators
+        function initBSPCardSwipe() {
+            const cardsContainer = document.querySelector('.bsp-cards');
+            const dots = document.querySelectorAll('.swipe-dot');
+            const cards = document.querySelectorAll('.bsp-card');
+
+            if (!cardsContainer || dots.length === 0 || cards.length === 0) return;
+
+            // Update active dot based on scroll position
+            function updateActiveDot() {
+                const scrollLeft = cardsContainer.scrollLeft;
+                const cardWidth = cards[0].offsetWidth;
+                const gap = 15; // Gap between cards
+                const activeIndex = Math.round(scrollLeft / (cardWidth + gap));
+
+                dots.forEach((dot, index) => {
+                    if (index === activeIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+
+            // Scroll to card when dot is clicked
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    const cardWidth = cards[0].offsetWidth;
+                    const gap = 15;
+                    const scrollPosition = index * (cardWidth + gap);
+                    cardsContainer.scrollTo({
+                        left: scrollPosition,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Listen to scroll events
+            cardsContainer.addEventListener('scroll', updateActiveDot);
+
+            // Initial update
+            updateActiveDot();
+        }
+
+        // Initialize on DOM ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initBSPCardSwipe);
+        } else {
+            initBSPCardSwipe();
+        }
     </script>
 
+    <script type="module" src="js/analytics.js"></script>
 </body>
 
 </html>

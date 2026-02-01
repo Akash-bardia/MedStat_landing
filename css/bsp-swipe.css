@@ -1,0 +1,112 @@
+/* BSP Toolkit Cards - Desktop Grid */
+.bsp-cards-container {
+    position: relative;
+}
+
+.bsp-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.bsp-card {
+    min-width: 0;
+    /* Prevent grid blowout */
+}
+
+/* Swipe indicators - hidden by default on desktop */
+.swipe-indicators {
+    display: none;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.swipe-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ccc;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.swipe-dot:hover {
+    background: #999;
+    transform: scale(1.2);
+}
+
+.swipe-dot.active {
+    background: var(--primary);
+    width: 24px;
+    border-radius: 4px;
+}
+
+/* Mobile Swipe Functionality */
+@media (max-width: 768px) {
+    .bsp-cards {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 15px;
+        padding: 5px 10px 15px 10px;
+        /* Add padding for better card visibility */
+        margin: 0 -10px;
+        /* Offset container padding */
+        -webkit-overflow-scrolling: touch;
+        /* Smooth scrolling on iOS */
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE/Edge */
+    }
+
+    .bsp-cards::-webkit-scrollbar {
+        display: none;
+        /* Chrome/Safari */
+    }
+
+    .bsp-card {
+        flex: 0 0 calc(90% - 10px);
+        /* 90% width minus gap */
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    /* Add subtle hint that more cards exist */
+    .bsp-cards::after {
+        content: '';
+        flex: 0 0 10px;
+        /* Small spacer at the end */
+    }
+
+    /* Show swipe indicators on mobile */
+    .swipe-indicators {
+        display: flex;
+    }
+
+    /* Make sure first card is partially visible from the left */
+    .bsp-card:first-child {
+        margin-left: 5%;
+    }
+
+    .bsp-card:last-child {
+        margin-right: 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .bsp-card {
+        flex: 0 0 calc(92% - 10px);
+        /* Slightly wider on very small screens */
+    }
+
+    .bsp-card:first-child {
+        margin-left: 4%;
+    }
+
+    .bsp-card:last-child {
+        margin-right: 4%;
+    }
+}

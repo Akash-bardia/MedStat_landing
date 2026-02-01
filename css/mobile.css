@@ -166,7 +166,7 @@
     }
 
     .msp-node {
-        padding: 12px 20px;
+        padding: 12px 16px;
         font-size: 0.85rem;
     }
 
@@ -216,7 +216,8 @@
     }
 
     .queue-branches {
-        flex-direction: column;
+        flex-direction: row;
+        gap: 8px;
     }
 
     .q-branch {
@@ -247,6 +248,63 @@
 
     .demo-card {
         padding: 30px 20px;
+    }
+
+    /* Footer Fix */
+    .footer-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-col {
+        align-items: center;
+    }
+
+    .footer-col h4 {
+        justify-content: center;
+    }
+
+    /* Unifying Operations Animation Fix */
+    .data-flow-pipeline {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 10px;
+        gap: 20px;
+        overflow: visible;
+        transform: scale(1);
+    }
+
+    .flow-connector {
+        transform: rotate(90deg);
+        margin: 10px 0;
+    }
+
+    .flow-stage {
+        width: 100%;
+        margin: 0;
+    }
+
+    .neural-engine {
+        transform: scale(0.9);
+    }
+
+    .insight-items {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .source-items {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Just hide particles on mobile to reduce noise/complexity */
+    .flow-particles,
+    .mm-data-particle {
+        display: none !important;
     }
 }
 
@@ -298,304 +356,546 @@
         font-size: 0.95rem;
     }
 
-    /* Simplify mesh animation significantly on mobile */
+    /* Simplify mesh animation but make it MORE VIBRANT on mobile */
     .msp-mesh {
-        width: 250px;
-        height: 250px;
+        width: 280px;
+        /* Increased from 250px */
+        height: 280px;
         margin-top: 20px;
     }
 
     .msp-node {
-        padding: 8px 12px;
-        font-size: 0.7rem;
-        gap: 5px;
+        padding: 10px 14px;
+        /* Increased from 8px 12px */
+        font-size: 0.75rem;
+        /* Slightly larger */
+        gap: 6px;
+        box-shadow: 0 6px 20px rgba(25, 118, 210, 0.25) !important;
+        /* Stronger shadow */
+        animation: float-mobile 4s ease-in-out infinite !important;
+        /* Faster, more visible */
+    }
+
+    /* More vibrant float animation for mobile */
+    @keyframes float-mobile {
+
+        0%,
+        100% {
+            transform: translateY(0) scale(1);
+        }
+
+        50% {
+            transform: translateY(-15px) scale(1.05);
+            /* More movement */
+        }
     }
 
     .msp-node i {
-        font-size: 1rem;
+        font-size: 1.1rem;
+        /* Larger icons */
     }
 
+    /* More vibrant center node */
     .n-center {
-        width: 80px;
-        height: 80px;
+        width: 90px !important;
+        /* Increased */
+        height: 90px !important;
+        border-width: 4px !important;
+        /* Thicker border */
+        box-shadow:
+            0 0 30px rgba(25, 118, 210, 0.6),
+            /* Stronger outer glow */
+            0 0 60px rgba(25, 118, 210, 0.4),
+            0 8px 25px rgba(0, 0, 0, 0.15) !important;
+        /* Depth shadow */
+        animation: pulse-center-mobile 2s ease-in-out infinite !important;
+    }
+
+    /* Vibrant pulse animation */
+    @keyframes pulse-center-mobile {
+
+        0%,
+        100% {
+            transform: scale(1);
+            box-shadow:
+                0 0 30px rgba(25, 118, 210, 0.6),
+                0 0 60px rgba(25, 118, 210, 0.4),
+                0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        50% {
+            transform: scale(1.08);
+            box-shadow:
+                0 0 40px rgba(25, 118, 210, 0.8),
+                0 0 80px rgba(25, 118, 210, 0.5),
+                0 12px 35px rgba(0, 0, 0, 0.2);
+        }
     }
 
     .n-center i {
-        font-size: 1.5rem;
+        font-size: 1.8rem !important;
+        /* Larger brain icon */
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
     }
 
     .n-center span {
-        font-size: 0.7rem;
+        font-size: 0.75rem !important;
+        font-weight: 600 !important;
     }
 
-    /* Hide connectors and AI packets on very small screens for performance */
+    /* Show connectors on mobile with simplified styling */
     .connector {
-        display: none;
+        display: block !important;
+        /* Show instead of hide */
+        width: 2px !important;
+        /* Thinner line for mobile */
+        height: 120px !important;
+        /* Shorter for mobile */
+        background: linear-gradient(to bottom,
+                rgba(25, 118, 210, 0.4),
+                rgba(25, 118, 210, 0)) !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform-origin: top !important;
+        animation: rotate-connector 15s linear infinite !important;
+        /* Slower for mobile */
     }
 
-    /* Sections */
-    .section {
-        padding: 50px 3%;
+    /* Ensure node text is strictly visible */
+    .msp-node {
+        color: #333 !important;
+        /* Force dark text */
+        z-index: 20 !important;
+        /* Ensure above everything */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
     }
 
-    .section-title {
-        font-size: 1.6rem !important;
-        margin-bottom: 15px;
+    /* AI Packets on mobile - smaller and visible */
+    .ai-packet {
+        width: 8px !important;
+        /* Smaller for mobile */
+        height: 8px !important;
+        background: var(--primary) !important;
+        border-radius: 50% !important;
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        animation: packet-pulse 1.5s ease-in-out infinite !important;
+        box-shadow: 0 0 10px rgba(25, 118, 210, 0.6) !important;
     }
 
-    .section-subtitle {
-        font-size: 0.9rem !important;
-        margin-bottom: 40px;
+    /* Packet pulse animation for mobile */
+    @keyframes packet-pulse {
+
+        0%,
+        100% {
+            opacity: 0.6;
+            transform: translateX(-50%) scale(1);
+        }
+
+        50% {
+            opacity: 1;
+            transform: translateX(-50%) scale(1.3);
+        }
     }
 
-    .tech-showcase {
-        padding: 50px 3%;
-    }
-
-    /* Cards */
-    .card {
-        padding: 25px 20px;
-    }
-
-    .card h3 {
-        font-size: 1.1rem;
-    }
-
-    .card p {
-        font-size: 0.9rem;
-    }
-
-    .icon-box {
-        width: 50px;
-        height: 50px;
-        font-size: 1.3rem;
-        margin-bottom: 15px;
-    }
-
-    /* Feature Rows */
-    .feature-row,
-    .feature-row.reverse {
-        margin-bottom: 50px;
-        gap: 30px;
-    }
-
-    .feature-text h2 {
-        font-size: 1.4rem;
-        margin-bottom: 12px;
-    }
-
-    .feature-text p {
-        font-size: 0.9rem;
-        line-height: 1.6;
-    }
-
-    /* Data to Insights - Mobile optimized */
-    .data-decision-flow {
-        gap: 20px;
-        padding: 20px 5px;
-    }
-
-    .dd-icon-box {
-        padding: 8px 12px;
-        font-size: 0.8rem;
-    }
-
-    .dd-icon-box i {
-        font-size: 0.9rem;
-    }
-
-    .dd-core {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
-    }
-
-    .dd-core-container p {
-        font-size: 0.85rem;
-    }
-
-    .dd-core-container small {
-        font-size: 0.7rem;
-    }
-
-    .dd-arrow {
-        font-size: 1.2rem;
-    }
-
-    /* Queue Management */
-    .queue-visual-tree {
-        padding: 15px;
-    }
-
-    .q-node-header {
-        font-size: 0.65rem;
-        padding: 3px 10px;
-    }
-
-    .q-track-main {
-        gap: 8px;
-    }
-
-    .q-dot {
-        width: 28px;
-        height: 28px;
-        font-size: 0.7rem;
-    }
-
-    .q-branch {
-        padding: 12px;
-    }
-
-    .branch-label {
-        font-size: 0.7rem;
-    }
-
-    .branch-desc {
-        font-size: 0.65rem;
-    }
-
-    /* Consultation Animation */
-    .consultation-animation-container {
-        min-height: 250px;
-        padding: 20px 15px;
-    }
-
-    .consultation-animation-container button {
-        padding: 10px 22px;
-        font-size: 0.9rem;
+    /* Fix SOAP Notes Grid on Mobile to be 4 smaller boxes */
+    .consultation-stage[data-stage="3"]>div:nth-of-type(2) {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 6px !important;
+        margin-bottom: 8px !important;
     }
 
     .soap-item {
-        padding: 8px;
+        padding: 6px !important;
+        min-height: auto !important;
+        border-radius: 6px !important;
     }
 
     .soap-item strong {
-        font-size: 0.8rem;
+        font-size: 0.7rem !important;
+        display: block !important;
+        margin-bottom: 2px !important;
     }
 
     .soap-item p {
-        font-size: 0.7rem;
+        font-size: 0.6rem !important;
+        line-height: 1.1 !important;
+        margin: 0 !important;
     }
 
-    /* Triage Animation */
-    .calendar-ai {
-        height: 320px;
-        padding: 15px;
+    /* Ensure node text is strictly visible, readable, and aligned */
+    .msp-node {
+        color: #000 !important;
+        font-weight: 700 !important;
+        z-index: 999 !important;
+        opacity: 1 !important;
+
+        /* ALIGNMENT FIXES */
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        /* Sizing Fixes */
+        width: auto !important;
+        height: auto !important;
+        min-width: 80px !important;
+        /* Minimum width for consistency */
+        padding: 8px 14px !important;
+        /* Balanced padding */
+
+        white-space: nowrap !important;
+        overflow: visible !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+        border-radius: 50px !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+        border-radius: 50px !important;
+        /* Pill shape checks text overflows better */
     }
 
-    /* BSP Toolkit */
-    .bsp-tool-grid {
-        gap: 15px;
+    /* Restore Center Node to Round & Column */
+    .msp-node.n-center {
+        width: 90px !important;
+        height: 90px !important;
+        border-radius: 50% !important;
+        flex-direction: column !important;
+        padding: 0 !important;
+        justify-content: center !important;
     }
 
-    /* Vision Section */
-    .vision-section {
-        padding: 60px 3%;
+    /* Ensure children inherit color */
+    .msp-node * {
+        color: inherit !important;
+        opacity: 1 !important;
     }
 
-    .vision-header h2 {
-        font-size: 1.6rem;
-    }
-
-    .vision-header p {
-        font-size: 0.95rem;
-    }
-
-    .vision-eyebrow {
-        font-size: 0.75rem;
-        padding: 6px 15px;
-    }
-
-    .vision-card {
-        padding: 30px 20px;
-    }
-
-    .vision-icon-wrap {
-        width: 65px;
-        height: 65px;
-        margin-bottom: 20px;
-    }
-
-    .vision-icon-wrap i {
-        font-size: 1.6rem;
-    }
-
-    .vision-card h3 {
-        font-size: 1.3rem;
-        margin-bottom: 12px;
-    }
-
-    .vision-card p {
-        font-size: 0.95rem;
-        line-height: 1.7;
-    }
-
-    /* Forms - Mobile Optimized */
-    .form-container {
-        padding: 25px 15px;
-        margin: 30px 3%;
-    }
-
-    .form-container h2 {
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-    }
-
-    .demo-card {
-        padding: 25px 15px;
-    }
-
-    .demo-card h2 {
-        font-size: 1.5rem;
-    }
-
-    .form-group {
-        margin-bottom: 18px;
-    }
-
-    label {
-        font-size: 0.9rem;
-        margin-bottom: 6px;
-    }
-
-    input,
-    select,
-    textarea {
-        padding: 14px 12px;
-        /* Increased for touch-friendly sizing */
-        font-size: 16px;
-        /* Prevent zoom on iOS */
-        min-height: 44px;
-        /* Touch-friendly minimum */
-    }
-
-    button[type="submit"] {
-        padding: 16px;
-        font-size: 1rem;
-        min-height: 50px;
-        /* Touch-friendly */
-    }
-
-    /* Footer */
-    footer {
-        padding: 50px 3%;
-    }
-
-    .footer-grid {
-        gap: 30px;
-        text-align: center;
-    }
-
-    .footer-col h4 {
-        font-size: 1.1rem;
-        margin-bottom: 15px;
-    }
-
-    .footer-col p,
-    .footer-col a {
-        font-size: 0.9rem;
+    /* Except icon which should be primary color usually, but let's keep it visible */
+    .msp-node i {
+        color: var(--primary) !important;
+        margin-right: 5px !important;
     }
 }
+
+.n-center i {
+    font-size: 1.6rem !important;
+}
+
+/* Slow down and enhance float animation for better mobile visibility */
+.msp-node {
+    animation-duration: 10s !important;
+}
+
+/* Sections */
+.section {
+    padding: 50px 3%;
+}
+
+.section-title {
+    font-size: 1.6rem !important;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    font-size: 0.9rem !important;
+    margin-bottom: 40px;
+}
+
+.tech-showcase {
+    padding: 50px 3%;
+}
+
+/* Cards */
+.card {
+    padding: 25px 20px;
+}
+
+.card h3 {
+    font-size: 1.1rem;
+}
+
+.card p {
+    font-size: 0.9rem;
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+/* Feature Rows */
+.feature-row,
+.feature-row.reverse {
+    margin-bottom: 50px;
+    gap: 30px;
+}
+
+.feature-text h2 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+}
+
+.feature-text p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Data to Insights - Mobile optimized */
+.data-decision-flow {
+    gap: 20px;
+    padding: 20px 5px;
+}
+
+.dd-icon-box {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+}
+
+.dd-icon-box i {
+    font-size: 0.9rem;
+}
+
+.dd-core {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+}
+
+.dd-core-container p {
+    font-size: 0.85rem;
+}
+
+.dd-core-container small {
+    font-size: 0.7rem;
+}
+
+.dd-arrow {
+    font-size: 1.2rem;
+}
+
+/* Queue Management */
+.queue-visual-tree {
+    padding: 15px;
+}
+
+.q-node-header {
+    font-size: 0.65rem;
+    padding: 3px 10px;
+}
+
+.q-track-main {
+    gap: 8px;
+}
+
+.q-dot {
+    width: 28px;
+    height: 28px;
+    font-size: 0.7rem;
+}
+
+.q-branch {
+    padding: 12px;
+}
+
+.branch-label {
+    font-size: 0.7rem;
+}
+
+.branch-desc {
+    font-size: 0.65rem;
+}
+
+/* Queue branch mobile improvements */
+.queue-branches {
+    flex-direction: row;
+    gap: 8px;
+}
+
+.branch-visual {
+    height: 45px;
+}
+
+.visual-token {
+    width: 26px;
+    height: 26px;
+    font-size: 0.65rem;
+}
+
+.wait-time-badge-tree {
+    font-size: 0.55rem;
+    padding: 2px 5px;
+}
+
+/* Consultation Animation */
+.consultation-animation-container {
+    min-height: 250px;
+    padding: 20px 15px;
+}
+
+.consultation-animation-container button {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+}
+
+.soap-item {
+    padding: 8px;
+}
+
+.soap-item strong {
+    font-size: 0.8rem;
+}
+
+.soap-item p {
+    font-size: 0.7rem;
+}
+
+/* Ensure consultation stage elements are properly sized */
+.consultation-stage>div {
+    width: 100%;
+    max-width: 100%;
+}
+
+.consultation-stage button {
+    max-width: 90%;
+    white-space: nowrap;
+}
+
+.consultation-stage .recording-indicator {
+    font-size: 0.8rem;
+    padding: 8px 15px;
+}
+
+/* Triage Animation */
+.calendar-ai {
+    height: 320px;
+    padding: 15px;
+}
+
+/* BSP Toolkit */
+.bsp-tool-grid {
+    gap: 15px;
+}
+
+/* Vision Section */
+.vision-section {
+    padding: 60px 3%;
+}
+
+.vision-header h2 {
+    font-size: 1.6rem;
+}
+
+.vision-header p {
+    font-size: 0.95rem;
+}
+
+.vision-eyebrow {
+    font-size: 0.75rem;
+    padding: 6px 15px;
+}
+
+.vision-card {
+    padding: 30px 20px;
+}
+
+.vision-icon-wrap {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 20px;
+}
+
+.vision-icon-wrap i {
+    font-size: 1.6rem;
+}
+
+.vision-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+.vision-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Forms - Mobile Optimized */
+.form-container {
+    padding: 25px 15px;
+    margin: 30px 3%;
+}
+
+.form-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.demo-card {
+    padding: 25px 15px;
+}
+
+.demo-card h2 {
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+input,
+select,
+textarea {
+    padding: 14px 12px;
+    /* Increased for touch-friendly sizing */
+    font-size: 16px;
+    /* Prevent zoom on iOS */
+    min-height: 44px;
+    /* Touch-friendly minimum */
+}
+
+button[type="submit"] {
+    padding: 16px;
+    font-size: 1rem;
+    min-height: 50px;
+    /* Touch-friendly */
+}
+
+/* Footer */
+footer {
+    padding: 50px 3%;
+}
+
+.footer-grid {
+    gap: 30px;
+    text-align: center;
+}
+
+.footer-col h4 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.footer-col a {
+    font-size: 0.9rem;
+}
+
+
+
 
 /* ============================================
    LANDSCAPE MOBILE OPTIMIZATION
@@ -843,5 +1143,61 @@
 
     body {
         background: white;
+    }
+
+    /* SOAP Notes scrollable on mobile only */
+    .consultation-stage[data-stage="3"] {
+        overflow-y: auto;
+        max-height: 420px;
+        /* Match container height */
+    }
+
+    /* Optimize Vision Section for Mobile */
+    .vision-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        padding: 0 10px !important;
+    }
+
+    .vision-card {
+        padding: 25px 20px !important;
+        /* Smaller padding */
+        border-radius: 16px !important;
+    }
+
+    .vision-icon-wrap {
+        width: 60px !important;
+        /* Smaller icon circle */
+        height: 60px !important;
+        margin-bottom: 15px !important;
+    }
+
+    .vision-icon-wrap i {
+        font-size: 1.5rem !important;
+        /* Smaller icon */
+    }
+
+    .vision-card h3 {
+        font-size: 1.25rem !important;
+        /* Smaller title */
+        margin-bottom: 10px !important;
+    }
+
+    .vision-card p {
+        font-size: 0.9rem !important;
+        /* Smaller text */
+        line-height: 1.6 !important;
+    }
+
+    /* AI Tagline Section Mobile */
+    .ai-tagline-section {
+        padding: 30px 0 !important;
+    }
+
+    .ai-tagline-text {
+        font-size: 1rem !important;
+        /* Smaller text on mobile */
+        padding: 0 10px !important;
     }
 }

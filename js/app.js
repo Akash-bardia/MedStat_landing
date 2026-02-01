@@ -35,7 +35,37 @@ if (document.readyState === 'loading') {
 
 function init() {
     playConsultationVideo();
+    playMultimodalFlow();
     setupScrollAnimations();
+}
+
+// Multimodal Flow Animation (3-stage cycle)
+function playMultimodalFlow() {
+    const container = document.querySelector('.multimodal-flow-container');
+    if (!container) return;
+
+    const stages = container.querySelectorAll('.mm-flow-stage');
+    let currentStage = 0;
+    const stageDurations = [3500, 3000, 3500]; // Times in ms for each stage
+
+    function showStage(stageIndex) {
+        stages.forEach(s => s.classList.remove('active'));
+        if (stages[stageIndex]) {
+            stages[stageIndex].classList.add('active');
+        }
+    }
+
+    function nextStage() {
+        showStage(currentStage);
+        const duration = stageDurations[currentStage];
+
+        setTimeout(() => {
+            currentStage = (currentStage + 1) % stages.length;
+            nextStage();
+        }, duration);
+    }
+
+    nextStage();
 }
 
 function setupScrollAnimations() {
@@ -49,10 +79,7 @@ function setupScrollAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('in-view');
-                // Optional: Stop observing once triggered if you want it to run only once
-                // observer.unobserve(entry.target); 
             } else {
-                // Optional: Remove class to replay animation when scrolling back up
                 entry.target.classList.remove('in-view');
             }
         });

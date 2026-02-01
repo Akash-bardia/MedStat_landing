@@ -281,6 +281,13 @@
         margin: 10px 0;
     }
 
+    /* Ensure the FontAwesome arrow icon itself rotates and is transformable */
+    .flow-connector i {
+        display: inline-block !important;
+        transform: rotate(90deg) !important;
+        transition: transform 0.25s ease !important;
+    }
+
     .flow-stage {
         width: 100%;
         margin: 0;
@@ -1200,4 +1207,78 @@ footer {
         /* Smaller text on mobile */
         padding: 0 10px !important;
     }
+}
+
+/* Mobile-only fixes for Queue Management and Consultation sections */
+@media (max-width: 768px) {
+    .feature-row.queue-row,
+    .feature-row.consultation-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 18px !important;
+        margin: 40px 4% !important;
+    }
+
+    .feature-row.queue-row .feature-text,
+    .feature-row.consultation-row .feature-text,
+    .feature-row.queue-row .feature-visual,
+    .feature-row.consultation-row .feature-visual {
+        width: 100% !important;
+        max-width: none !important;
+    }
+
+    /* Ensure visual boxes center nicely and appear after text on mobile */
+    .feature-row.queue-row .feature-text,
+    .feature-row.consultation-row .feature-text {
+        order: 1;
+    }
+
+    .feature-row.queue-row .feature-visual,
+    .feature-row.consultation-row .feature-visual {
+        order: 2;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Tidy up large internal white cards inside visuals */
+    .feature-row .feature-visual > div {
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+}
+
+/* Strong mobile overrides to ensure SOAP notes render as a 2x2 grid and are scroll-friendly
+   Only affect the active SOAP stage on small screens to avoid changing desktop animations. */
+@media (max-width: 768px) {
+    .consultation-stage.active[data-stage="3"] {
+        position: static !important;
+        inset: auto !important;
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        overflow-y: auto !important;
+        max-height: 420px !important;
+        padding-top: 10px !important;
+    }
+
+    .consultation-stage.active[data-stage="3"] > div:nth-of-type(2) {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .consultation-stage.active[data-stage="3"] .soap-item {
+        padding: 10px !important;
+        min-height: auto !important;
+        border-radius: 8px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Slightly reduce animation delay on small screens for snappier feel */
+    .consultation-stage.active[data-stage="3"] .soap-item:nth-child(1) { animation-delay: 0.12s !important; }
+    .consultation-stage.active[data-stage="3"] .soap-item:nth-child(2) { animation-delay: 0.24s !important; }
+    .consultation-stage.active[data-stage="3"] .soap-item:nth-child(3) { animation-delay: 0.36s !important; }
+    .consultation-stage.active[data-stage="3"] .soap-item:nth-child(4) { animation-delay: 0.48s !important; }
 }

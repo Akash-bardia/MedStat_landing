@@ -123,6 +123,10 @@
         display: flex;
     }
 
+    .nav-links {
+        display: none;
+    }
+
     .back-link {
         display: none !important;
         /* Hide back links on mobile, use menu instead */
@@ -952,7 +956,7 @@ footer {
 
     /* Simplify animations for better touch performance */
     * {
-        animation-duration: 0.8s !important;
+        animation-duration: 5s !important;
     }
 }
 
@@ -1211,6 +1215,7 @@ footer {
 
 /* Mobile-only fixes for Queue Management and Consultation sections */
 @media (max-width: 768px) {
+
     .feature-row.queue-row,
     .feature-row.consultation-row {
         flex-direction: column !important;
@@ -1241,7 +1246,7 @@ footer {
     }
 
     /* Tidy up large internal white cards inside visuals */
-    .feature-row .feature-visual > div {
+    .feature-row .feature-visual>div {
         width: 100% !important;
         box-sizing: border-box;
     }
@@ -1262,7 +1267,7 @@ footer {
         padding-top: 10px !important;
     }
 
-    .consultation-stage.active[data-stage="3"] > div:nth-of-type(2) {
+    .consultation-stage.active[data-stage="3"]>div:nth-of-type(2) {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 8px !important;
@@ -1277,8 +1282,19 @@ footer {
     }
 
     /* Slightly reduce animation delay on small screens for snappier feel */
-    .consultation-stage.active[data-stage="3"] .soap-item:nth-child(1) { animation-delay: 0.12s !important; }
-    .consultation-stage.active[data-stage="3"] .soap-item:nth-child(2) { animation-delay: 0.24s !important; }
-    .consultation-stage.active[data-stage="3"] .soap-item:nth-child(3) { animation-delay: 0.36s !important; }
-    .consultation-stage.active[data-stage="3"] .soap-item:nth-child(4) { animation-delay: 0.48s !important; }
+    .consultation-stage.active[data-stage="3"] .soap-item:nth-child(1) {
+        animation-delay: 0.12s !important;
+    }
+
+    .consultation-stage.active[data-stage="3"] .soap-item:nth-child(2) {
+        animation-delay: 0.24s !important;
+    }
+
+    .consultation-stage.active[data-stage="3"] .soap-item:nth-child(3) {
+        animation-delay: 0.36s !important;
+    }
+
+    .consultation-stage.active[data-stage="3"] .soap-item:nth-child(4) {
+        animation-delay: 0.48s !important;
+    }
 }

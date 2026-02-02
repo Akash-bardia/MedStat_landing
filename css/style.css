@@ -84,6 +84,8 @@ header {
 .nav-links {
     display: flex;
     gap: 30px;
+    align-items: center;
+    /* Vertically align text with button */
 }
 
 .nav-links a {
@@ -3930,10 +3932,10 @@ select:focus {
     transition: width 0.4s ease, background-color 0.4s ease;
 }
 
-.vision-card:hover .vision-line {
+/* .vision-card:hover .vision-line {
     width: 100%;
     background: var(--primary);
-}
+} */
 
 
 
@@ -8632,4 +8634,1018 @@ select:focus {
 
 #image-success-status {
     margin-top: 20px;
+}
+
+/* --- Family Dashboard Animation (Permission Control) --- */
+.family-anim-container {
+    width: 100%;
+    max-width: 450px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eee;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    /* Center it */
+}
+
+.family-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.family-avatar {
+    width: 60px;
+    height: 60px;
+    background: #e3f2fd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--primary);
+    position: relative;
+}
+
+.family-avatar::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 14px;
+    height: 14px;
+    background: #4caf50;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.family-info h4 {
+    margin: 0 0 4px 0;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.family-info p {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+.permission-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8faff;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+}
+
+.permission-row.active {
+    background: #e3f2fd;
+    border-color: #bbdefb;
+}
+
+.perm-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: #455a64;
+    font-size: 0.95rem;
+}
+
+.perm-label i {
+    width: 24px;
+    text-align: center;
+    color: #90a4ae;
+}
+
+.permission-row.active .perm-label i {
+    color: var(--primary);
+}
+
+.perm-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.anim-toggle {
+    width: 44px;
+    height: 24px;
+    background: #cfd8dc;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.anim-toggle .knob {
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    animation: moveKnob 6s infinite;
+}
+
+/* Animation State via Keyframes application */
+.anim-toggle-wrapper {
+    animation: activateToggle 6s infinite;
+}
+
+.cursor-hand {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%23333%22%3E%3Cpath d=%22M9,2c-0.6,0-1,0.4-1,1v12c0,0,0,0,0,0l-4.6-2.1c-0.4-0.2-0.9,0-1.2,0.4c-0.2,0.4,0,0.9,0.4,1.1L8.8,17c0.8,0.4,1.4,1.1,1.5,1.9 c0.3,1.6,1.7,2.9,3.4,3c1.9,0.2,3.6-1.1,3.9-3c0-0.1,0-0.1,0-0.2c0-0.9,0-4.7,0-8.7C17.6,9.4,17.2,9,16.6,9c-0.6,0-1,0.4-1,1v5 c0,0.6-0.4,1-1,1s-1-0.4-1-1V4c0-0.6-0.4-1-1-1s-1,0.4-1,1v7c0,0.6-0.4,1-1,1s-1-0.4-1-1V3C10.6,2.4,10.2,2,9.6,2C9,2,9,2,9,2z%22/%3E%3C/svg%3E');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    top: 55%;
+    left: 80%;
+    animation: cursorClick 6s infinite;
+}
+
+.perm-row-anim {
+    animation: rowHighlight 6s infinite;
+}
+
+/* Status Text Animation */
+.perm-status {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #b0bec5;
+    text-transform: uppercase;
+}
+
+.perm-status-anim {
+    animation: statusTextAnim 6s infinite;
+}
+
+@keyframes cursorClick {
+
+    0%,
+    15% {
+        opacity: 0;
+        transform: translate(30px, 30px);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: scale(0.9);
+        /* Click press */
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
+        transform: translate(10px, 20px);
+    }
+}
+
+@keyframes activateToggle {
+
+    0%,
+    25% {
+        background: #cfd8dc;
+    }
+
+    25% {
+        background: var(--primary);
+    }
+
+    85% {
+        background: var(--primary);
+    }
+
+    90%,
+    100% {
+        background: #cfd8dc;
+    }
+}
+
+@keyframes moveKnob {
+
+    0%,
+    25% {
+        transform: translateX(0);
+    }
+
+    27%,
+    85% {
+        transform: translateX(20px);
+    }
+
+    90%,
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes rowHighlight {
+
+    0%,
+    25% {
+        background: #f8faff;
+        border-color: transparent;
+    }
+
+    27%,
+    85% {
+        background: #e3f2fd;
+        border-color: #bbdefb;
+    }
+
+    90%,
+    100% {
+        background: #f8faff;
+        border-color: transparent;
+    }
+}
+
+@keyframes statusTextAnim {
+
+    0%,
+    25% {
+        color: #b0bec5;
+        opacity: 0.8;
+    }
+
+    27%,
+    85% {
+        color: var(--primary);
+        opacity: 1;
+    }
+
+    90%,
+    100% {
+        color: #b0bec5;
+        opacity: 0.8;
+    }
+}
+
+/* Text Content Switch Trick */
+.status-text::after {
+    content: 'RESTRICTED';
+    animation: statusContentChange 6s infinite;
+}
+
+@keyframes statusContentChange {
+
+    0%,
+    25% {
+        content: 'RESTRICTED';
+    }
+
+    27%,
+    85% {
+        content: 'ALLOWED';
+    }
+
+    90%,
+    100% {
+        content: 'RESTRICTED';
+    }
+}
+
+
+/* --- Advanced Family Dashboard Workflow Animation --- */
+.family-demo-stage {
+    width: 100%;
+    max-width: 450px;
+    height: 260px;
+    /* Fixed height for screens */
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eee;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.demo-screen {
+    position: absolute;
+    inset: 0;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    pointer-events: none;
+    /* Let cursor float above */
+}
+
+/* Screen Header Shared */
+.screen-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.screen-title {
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+.screen-header i {
+    color: #b0bec5;
+}
+
+/* Screen A: Dashboard List */
+.member-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.member-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    border-radius: 12px;
+    background: #f8faff;
+    border: 1px solid transparent;
+}
+
+.member-item.grandma {
+    /* Target for click */
+    position: relative;
+}
+
+.member-item.grandma.active-state {
+    background: #e3f2fd;
+    border-color: #bbdefb;
+}
+
+/* Screen B: Profile Actions */
+.profile-hero {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.demo-btn {
+    padding: 15px;
+    border-radius: 12px;
+    background: #f5f5f5;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.book-btn.clicked {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border-color: #c8e6c9;
+}
+
+/* Screen C: Consultation Note */
+.note-card {
+    background: #fff8e1;
+    border: 1px dashed #ffb300;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.rx-box {
+    background: #e3f2fd;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: #1565c0;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Animation Logic */
+.screen-a {
+    animation: cycleScreenA 12s infinite;
+}
+
+.screen-b {
+    animation: cycleScreenB 12s infinite;
+}
+
+.screen-c {
+    animation: cycleScreenC 12s infinite;
+}
+
+@keyframes cycleScreenA {
+
+    0%,
+    30% {
+        opacity: 1;
+        transform: translateY(0);
+        z-index: 2;
+    }
+
+    35%,
+    95% {
+        opacity: 0;
+        transform: translateY(-20px);
+        z-index: 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        z-index: 2;
+    }
+}
+
+@keyframes cycleScreenB {
+
+    0%,
+    30% {
+        opacity: 0;
+        transform: translateY(20px);
+        z-index: 0;
+    }
+
+    35%,
+    65% {
+        opacity: 1;
+        transform: translateY(0);
+        z-index: 2;
+    }
+
+    70%,
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+        z-index: 0;
+    }
+}
+
+@keyframes cycleScreenC {
+
+    0%,
+    65% {
+        opacity: 0;
+        transform: translateY(20px);
+        z-index: 0;
+    }
+
+    70%,
+    95% {
+        opacity: 1;
+        transform: translateY(0);
+        z-index: 2;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+        z-index: 0;
+    }
+}
+
+/* Cursor Animation */
+.demo-cursor {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%23333%22%3E%3Cpath d=%22M4 2l14 10-6.5 1.5L15 19l-3 1.5-3.5-5.5L4 19V2z%22/%3E%3C/svg%3E');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    pointer-events: none;
+    animation: cursorPath 12s infinite;
+}
+
+@keyframes cursorPath {
+
+    /* Start at bottom right */
+    0% {
+        transform: translate(350px, 200px);
+    }
+
+    /* Move to Grandma Item (Screen A) ~25% */
+    20% {
+        transform: translate(200px, 90px);
+    }
+
+    25% {
+        transform: translate(200px, 90px) scale(0.9);
+    }
+
+    /* Click */
+    30% {
+        transform: translate(200px, 90px) scale(1);
+    }
+
+    /* Move to Book Button (Screen B) ~50% */
+    45% {
+        transform: translate(100px, 160px);
+    }
+
+    50% {
+        transform: translate(100px, 160px) scale(0.9);
+    }
+
+    /* Click */
+    55% {
+        transform: translate(100px, 160px) scale(1);
+    }
+
+    /* Move away / Reset */
+    65% {
+        transform: translate(350px, 250px);
+        opacity: 1;
+    }
+
+    90% {
+        transform: translate(350px, 250px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(350px, 200px);
+        opacity: 0;
+    }
+}
+
+/* Interactions */
+.member-item.grandma {
+    animation: highlightMember 12s infinite;
+}
+
+.book-btn {
+    animation: clickBook 12s infinite;
+}
+
+@keyframes highlightMember {
+
+    0%,
+    25% {
+        background: #f8faff;
+        border-color: transparent;
+    }
+
+    26%,
+    35% {
+        background: #e3f2fd;
+        border-color: #bbdefb;
+    }
+
+    /* Highlight on click */
+    36%,
+    100% {
+        background: #f8faff;
+        border-color: transparent;
+    }
+}
+
+@keyframes clickBook {
+
+    0%,
+    50% {
+        background: #f5f5f5;
+        color: var(--text-dark);
+        content: 'Book Appointment';
+    }
+
+    51%,
+    65% {
+        background: #e8f5e9;
+        color: #2e7d32;
+        border-color: #c8e6c9;
+    }
+
+    /* Confirmed */
+    66%,
+    100% {
+        background: #f5f5f5;
+        color: var(--text-dark);
+    }
+}
+
+/* Changing text content for button requires pseudo element trick or just color change */
+.book-btn::after {
+    content: 'Book Appointment';
+}
+
+.book-btn.anim-text::after {
+    animation: changeBtnText 12s infinite;
+}
+
+@keyframes changeBtnText {
+
+    0%,
+    50% {
+        content: 'Book Appointment';
+    }
+
+    51%,
+    65% {
+        content: 'Confirmed!';
+    }
+
+    66%,
+    100% {
+        content: 'Book Appointment';
+    }
+}
+
+/* --- Hero Section Network Animation --- */
+.hero-network-container {
+    width: 600px;
+    height: 600px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.core-hub-center {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at 30% 30%, #ffffff, #e3f2fd, #1976d2);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 0 40px rgba(25, 118, 210, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.8);
+    position: relative;
+    animation: pulseCore 3s infinite ease-in-out;
+}
+
+.core-hub-center i {
+    font-size: 2.5rem;
+    color: #0d47a1;
+    margin-bottom: 5px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.core-hub-center span {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #0d47a1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Network Arms */
+.network-arm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 240px;
+    /* Radius length */
+    height: 2px;
+    transform-origin: 0 50%;
+}
+
+.network-arm.arm-1 {
+    transform: rotate(-45deg);
+}
+
+/* Top Left */
+.network-arm.arm-2 {
+    transform: rotate(-135deg);
+}
+
+/* Top Right (Requires flipping label) */
+.network-arm.arm-3 {
+    transform: rotate(45deg);
+}
+
+/* Bottom Right */
+.network-arm.arm-4 {
+    transform: rotate(135deg);
+}
+
+/* Bottom Left */
+
+.arm-line {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #2196f3, transparent);
+    position: relative;
+    overflow: hidden;
+    opacity: 0.4;
+}
+
+.arm-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+    transform: translateX(-100%);
+    animation: flowData 3s infinite linear;
+}
+
+/* Node Boxes */
+.arm-node-box {
+    position: absolute;
+    right: -10px;
+    /* Push out slightly */
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    /* Counter-rotate to stay level for Arm 1 */
+    background: white;
+    padding: 12px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: #37474f;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    animation: floatNode 4s infinite ease-in-out;
+}
+
+/* Specific Counter-Rotations for Text Readability */
+.arm-1 .arm-node-box {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.arm-2 .arm-node-box {
+    transform: translateY(-50%) rotate(135deg);
+    right: auto;
+    left: 100%;
+}
+
+/* This one is tricky visually, let's just position absolute better or rely on parent div positioning without rotation transforms on the arm itself? 
+   Better approach: Position arms absolutely without rotation, just top/left/right/bottom coordinates to avoid text rotation hell. 
+   REVISING CSS STRATEGY below for cleaner layout.
+*/
+
+
+/* --- Corrected Hero Network CSS --- */
+
+/* Node Positioning with Counter-Rotation */
+.arm-1 {
+    transform: rotate(225deg);
+}
+
+/* Points to Top-Left */
+.arm-2 {
+    transform: rotate(315deg);
+}
+
+/* Points to Top-Right */
+.arm-3 {
+    transform: rotate(45deg);
+}
+
+/* Points to Bottom-Right */
+.arm-4 {
+    transform: rotate(135deg);
+}
+
+/* Points to Bottom-Left */
+
+.arm-1 .arm-node-box {
+    transform: translateY(-50%) rotate(-225deg);
+}
+
+.arm-2 .arm-node-box {
+    transform: translateY(-50%) rotate(-315deg);
+}
+
+.arm-3 .arm-node-box {
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+.arm-4 .arm-node-box {
+    transform: translateY(-50%) rotate(-135deg);
+}
+
+.arm-node-box {
+    position: absolute;
+    right: -130px;
+    /* Distance from end of line, effectively radius extension */
+    top: 50%;
+    width: 140px;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #455a64;
+    font-size: 0.9rem;
+    z-index: 5;
+    animation: floatNode 5s infinite ease-in-out;
+}
+
+.arm-node-box i {
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+@keyframes pulseCore {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 40px rgba(25, 118, 210, 0.4);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 60px rgba(25, 118, 210, 0.6);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 40px rgba(25, 118, 210, 0.4);
+    }
+}
+
+@keyframes flowData {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes floatNode {
+
+    0%,
+    100% {
+        transform: translateY(-50%) rotate(var(--r, 0deg)) translateY(0);
+    }
+
+    50% {
+        transform: translateY(-50%) rotate(var(--r, 0deg)) translateY(-5px);
+    }
+}
+
+/* Fix rotation variables for floating animation */
+.arm-1 .arm-node-box {
+    --r: -225deg;
+}
+
+.arm-2 .arm-node-box {
+    --r: -315deg;
+}
+
+.arm-3 .arm-node-box {
+    --r: -45deg;
+}
+
+.arm-4 .arm-node-box {
+    --r: -135deg;
+}
+
+
+/* Arm 5 (Right) Configuration */
+.arm-5 {
+    transform: rotate(0deg);
+}
+
+/* Points Right */
+.arm-5 .arm-node-box {
+    transform: translateY(-50%) rotate(0deg);
+    --r: 0deg;
+}
+
+
+/* Updated Hero Node Positions (Targeting Tips of Spikes) */
+.n1 {
+    top: 27%;
+    left: 18%;
+    animation-delay: 0s;
+}
+
+/* Doctor */
+.n2 {
+    top: 12%;
+    left: 62%;
+    animation-delay: 1s;
+}
+
+/* Data */
+.n3 {
+    top: 73%;
+    left: 18%;
+    animation-delay: 2s;
+}
+
+/* Analytics */
+.n4 {
+    top: 88%;
+    left: 62%;
+    animation-delay: 3s;
+}
+
+/* Optimization */
+.n5 {
+    top: 50%;
+    left: 90%;
+    animation-delay: 4s;
+    transform: translate(0, -50%);
+}
+
+/* Connectivity */
+
+
+/* FORCE OVERRIDE for Node Positions */
+.n1 {
+    top: 27% !important;
+    left: 18% !important;
+    transform: translate(-100%, -100%) !important;
+    animation-delay: 0s;
+    right: auto !important;
+    bottom: auto !important;
+}
+
+.n2 {
+    top: 12% !important;
+    left: 62% !important;
+    transform: translate(10px, -50%) !important;
+    animation-delay: 1s;
+    right: auto !important;
+    bottom: auto !important;
+}
+
+.n3 {
+    top: 73% !important;
+    left: 18% !important;
+    transform: translate(-100%, 0) !important;
+    animation-delay: 2s;
+    right: auto !important;
+    bottom: auto !important;
+}
+
+.n4 {
+    top: 88% !important;
+    left: 62% !important;
+    transform: translate(10px, -50%) !important;
+    animation-delay: 3s;
+    right: auto !important;
+    bottom: auto !important;
+}
+
+.n5 {
+    top: 50% !important;
+    left: 90% !important;
+    transform: translate(10px, -50%) !important;
+    animation-delay: 4s;
 }

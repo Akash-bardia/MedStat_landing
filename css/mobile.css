@@ -595,6 +595,27 @@
         color: var(--primary) !important;
         margin-right: 5px !important;
     }
+
+    /* Fix n5 (Connectivity) positioning to prevent cutoff on mobile */
+    .msp-node.n5 {
+        left: 88% !important;
+        transform: translate(-17%, 26%) !important;
+    }
+
+    .msp-node.n4 {
+        left: 88% !important;
+        transform: translate(-145%, 2%) !important;
+    }
+
+    .msp-node.n3 {
+        left: 88% !important;
+        transform: translate(-340%, -125%) !important;
+    }
+
+    .msp-node.n1 {
+        left: 88% !important;
+        transform: translate(-300%, -160%) !important;
+    }
 }
 
 .n-center i {

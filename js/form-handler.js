@@ -7,7 +7,16 @@
     'use strict';
 
     // Configuration
-    const API_BASE_URL = 'http://localhost:8000';  // Change for production
+    // Configuration
+    const getApiBaseUrl = () => {
+        const hostname = window.location.hostname;
+        if (hostname === 'localhost' || hostname === '127.0.0.1') {
+            return 'http://localhost:8000';
+        }
+        return ''; // Relative path for production
+    };
+
+    const API_BASE_URL = getApiBaseUrl();
 
     /**
      *  Show loading state on form

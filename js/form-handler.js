@@ -16,6 +16,7 @@
     };
 
     const API_BASE_URL = getApiBaseUrl();
+    console.log('Form Handler Configured. API Base URL:', API_BASE_URL || 'Relative (for production)');
 
     /**
      *  Show loading state on form
@@ -96,7 +97,10 @@
         try {
             showLoading(form, button);
 
-            const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+            const url = `${API_BASE_URL}${endpoint}`;
+            console.log('Submitting form to:', url);
+
+            const response = await fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

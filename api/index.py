@@ -90,7 +90,11 @@ async def submit_contact_form(form_data: ContactForm):
         email_sent = await send_contact_notification(form_data)
         
         if not email_sent:
-            logger.warning("Email notification failed, but form was submitted")
+            logger.error("Email notification failed for contact form")
+            raise HTTPException(
+                status_code=500,
+                detail="Failed to send email notification. Please try again later."
+            )
         
         return SuccessResponse(
             success=True,
@@ -121,7 +125,11 @@ async def submit_demo_request(demo_data: DemoRequest):
         email_sent = await send_demo_notification(demo_data)
         
         if not email_sent:
-            logger.warning("Email notification failed, but demo request was submitted")
+            logger.error("Email notification failed for demo request")
+            raise HTTPException(
+                status_code=500,
+                detail="Failed to send email notification. Please try again later."
+            )
         
         return SuccessResponse(
             success=True,

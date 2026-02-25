@@ -1,6 +1,11 @@
 from pydantic_settings import BaseSettings
 from typing import List
 import os
+from dotenv import load_dotenv
+
+# Explicitly load .env file if it exists (handles local dev)
+# In production, this does nothing if file is missing, which is perfect
+load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 
 class Settings(BaseSettings):
     """Application configuration"""
@@ -22,7 +27,6 @@ class Settings(BaseSettings):
     API_VERSION: str = "1.0.0"
     
     class Config:
-        env_file = os.path.join(os.path.dirname(__file__), ".env")
         case_sensitive = True
         extra = "ignore"
 

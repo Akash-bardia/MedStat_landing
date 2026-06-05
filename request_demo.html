@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Request Demo - MedStat</title>
+    <title>Explore Demo - MedStat</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
@@ -30,116 +30,111 @@
         <nav class="mobile-nav">
             <a href="landing.html" class="mobile-nav-link">Home</a>
             <a href="landing.html#features" class="mobile-nav-link">Solutions</a>
-            <a href="request_demo.html" class="mobile-nav-link">Request a Demo</a>
+            <a href="request_demo.html" class="mobile-nav-link">Experience Live Demo</a>
             <a href="contact.html" class="mobile-nav-link">Contact Us</a>
         </nav>
     </div>
 
     <div class="page-container">
         <div class="content-wrapper">
-            <!-- Left Side - Demo Information -->
+            <!-- Left: Info / Benefits -->
             <div class="info-section">
                 <div class="info-header">
-                    <h1>Schedule a Demo</h1>
-                    <p>Experience firsthand how MedStat transforms clinical workflows and improves patient outcomes.</p>
+                    <h1>Explore the Live Demo</h1>
+                    <p>Open the demo environment and try MedStat with the example accounts below — no signup required.
+                    </p>
                 </div>
 
                 <div class="demo-benefits">
-                    <h3>What You'll Get:</h3>
                     <div class="benefit-item">
                         <div class="benefit-icon">
-                            <i class="fas fa-clock"></i>
+                            <i class="fas fa-desktop"></i>
                         </div>
                         <div class="benefit-content">
-                            <h4>A Demo of the Product</h4>
+                            <h4>Full product walkthrough</h4>
+                            <p>Navigate the core workflows used by clinicians and patients.</p>
                         </div>
                     </div>
-
-
 
                     <div class="benefit-item">
                         <div class="benefit-icon">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fas fa-users"></i>
                         </div>
                         <div class="benefit-content">
-                            <h4>ROI Analysis</h4>
+                            <h4>Multi-role access</h4>
+                            <p>Sign in as doctor, patient, or family.</p>
                         </div>
                     </div>
 
-                    <div style="display: flex; justify-content: center; grid-column: 1 / -1;">
-                        <div class="benefit-item">
-                            <div class="benefit-icon">
-                                <i class="fas fa-file-alt"></i>
-                            </div>
-                            <div class="benefit-content">
-                                <h4>Custom Proposal</h4>
-                            </div>
+                    <div class="benefit-item centered-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-lock"></i>
                         </div>
-                    </div>
-                </div>
-
-                <div class="trust-badges">
-                    <div class="trust-item">
-                        <i class="fas fa-lock"></i>
-                        <span>Secure & Private</span>
+                        <div class="benefit-content">
+                            <h4>Secure environment</h4>
+                            <p>Safe, isolated demo sandbox.</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Right Side - Demo Request Form -->
+            <!-- Right: Demo Card / CTA -->
             <div class="form-section">
                 <div class="form-card">
-                    <h2>Request Your Demo</h2>
-                    <p class="form-subtitle">Fill in your details and we'll contact you within 24 hours to schedule.</p>
+                    <h2>MedStat — Live Demo</h2>
+                    <p class="form-subtitle">Open the demo in a new tab and use the example accounts below to sign in.
+                    </p>
 
-                    <!-- Form now handled by FastAPI backend -->
-                    <form id="demo-form">
-                        <div class="form-group">
-                            <label><i class="fas fa-user"></i> Full Name</label>
-                            <input type="text" name="name" required>
-                        </div>
+                    <div class="demo-cta-container">
+                        <a class="submit-btn" href="http://demo.medstat.co.in" target="_blank"
+                            rel="noopener noreferrer">
+                            <i class="fas fa-external-link-alt"></i> Experience the Demo
+                        </a>
+                    </div>
 
-                        <div class="form-group">
-                            <label><i class="fas fa-hospital"></i> Clinic / Hospital Name</label>
-                            <input type="text" name="clinic" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label><i class="fas fa-user-tag"></i> Your Role</label>
-                            <select name="role">
-                                <option>Doctor</option>
-                                <option>Administrator</option>
-                                <option>IT Manager</option>
-                                <option>Practice Manager</option>
-                                <option>Investor</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label><i class="fas fa-envelope"></i> Work Email</label>
-                            <input type="email" name="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label><i class="fas fa-phone"></i> Phone Number</label>
-                            <input type="tel" name="phone" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label><i class="fas fa-list-check"></i> Specific Interests (Optional)</label>
-                            <textarea name="interests" rows="3"></textarea>
-                        </div>
-
-                        <button type="submit" class="submit-btn">
-                            <i class="fas fa-calendar-check"></i> Request Demo
-                        </button>
-
-                        <p class="privacy-note">
-                            <i class="fas fa-info-circle"></i> Your information is safe with us. We respect your
-                            privacy.
+                    <div class="credentials" style="margin-top:8px;">
+                        <h3>Demo Credentials</h3>
+                        <ul>
+                            <li class="cred-item">
+                                <div>
+                                    <strong>Doctor</strong>
+                                </div>
+                                <div class="cred-details">
+                                    <div><span class="cred-label">Username:</span> <span
+                                            class="mono">doctor@example.com</span></div>
+                                    <div><span class="cred-label">Password:</span> <span class="mono">doctor</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="cred-item">
+                                <div>
+                                    <strong>Patient</strong>
+                                </div>
+                                <div class="cred-details">
+                                    <div><span class="cred-label">Username:</span> <span
+                                            class="mono">patient@example.com</span></div>
+                                    <div><span class="cred-label">Password:</span> <span class="mono">patient</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="cred-item">
+                                <div>
+                                    <strong>Family</strong>
+                                </div>
+                                <div class="cred-details">
+                                    <div><span class="cred-label">Username:</span> <span
+                                            class="mono">family@example.com</span></div>
+                                    <div><span class="cred-label">Password:</span> <span class="mono">family</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <p class="credential-note">Use these credentials to sign in and explore the respective
+                            dashboards: the <strong>Doctor</strong> account opens the clinician dashboard, the
+                            <strong>Patient</strong> account opens the patient portal, and the <strong>Family</strong>
+                            account shows family member access.
                         </p>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

@@ -3,52 +3,66 @@
    Professional split-screen layout
    ============================================ */
 
-/* Page Container */
 .page-container {
-    min-height: 100vh;
+    height: 100vh;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     padding-top: 80px;
+    overflow: hidden;
 }
 
 .content-wrapper {
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 55% 45%;
+    /* Narrower left side */
     gap: 0;
-    height: calc(100vh - 70px);
-    /* Fixed height for no scroll */
+    height: calc(100vh - 80px);
+    /* Adjust for header */
     overflow: hidden;
     align-items: center;
-    /* Vertically center children */
 }
 
 /* Info Section (Left Side) */
 .info-section {
-    background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
-    padding: 40px;
+    background: linear-gradient(145deg, #1976d2 0%, #0d47a1 100%);
+    padding: 60px;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
 
     /* Box Styling */
-    border-radius: 20px;
+    border-radius: 24px;
     margin: 20px;
-    /* Spacing from edges */
-    box-shadow: 0 10px 40px rgba(25, 118, 210, 0.3);
-    max-width: 90%;
+    box-shadow: 0 20px 50px rgba(13, 71, 161, 0.3);
+    max-width: 95%;
     width: 100%;
     align-self: center;
-    /* Vertical center in grid */
     justify-self: center;
-    /* Horizontal center in grid */
+    position: relative;
+    overflow: hidden;
+}
+
+.info-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    pointer-events: none;
 }
 
 .info-header {
     max-width: 600px;
     width: 100%;
+    margin-left: 0;
+    /* Fixed alignment */
+    margin-bottom: 30px;
 }
 
 .info-header h1 {
@@ -189,11 +203,18 @@
 .demo-benefits {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 20px;
     margin-bottom: 25px;
     width: 100%;
-    max-width: 600px;
-    /* Constrain width */
+    max-width: 750px;
+    margin-left: 0;
+}
+
+.centered-item {
+    grid-column: span 2;
+    justify-self: center;
+    width: fit-content;
+    max-width: 350px;
 }
 
 .demo-benefits h3 {
@@ -206,30 +227,35 @@
 
 .benefit-item {
     display: flex;
-    gap: 15px;
-    margin-bottom: 15px;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    gap: 18px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.15);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    align-items: flex-start;
 }
 
 .benefit-item:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .benefit-icon {
-    width: 32px;
-    height: 32px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 1.2rem;
     flex-shrink: 0;
+    color: white;
 }
 
 .benefit-content h4 {
@@ -242,6 +268,7 @@
     font-size: 0.9rem;
     opacity: 0.9;
     margin: 0;
+    color: rgba(255, 255, 255, 0.95);
 }
 
 /* Trust Badges */
@@ -271,25 +298,23 @@
 /* Form Section (Right Side) */
 .form-section {
     background: white;
-    padding: 20px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    overflow: hidden;
+    /* No scroll */
     height: 100%;
-    /* Ensure it fills parent to allow internal scroll */
 }
 
 .form-card {
     width: 100%;
-    max-width: 450px;
+    max-width: 520px;
     margin: auto;
-    /* Safe vertical/horizontal centering */
-    /* Don't stretch too wide */
     background: white;
-    padding: 30px;
+    padding: 24px;
+    /* More compact */
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    /* Professional shadow */
     border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
@@ -302,9 +327,9 @@
 
 .form-subtitle {
     color: #666;
-    font-size: 0.85rem;
-    margin-bottom: 25px;
-    line-height: 1.4;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    line-height: 1.3;
 }
 
 /* Form Styles */
@@ -374,7 +399,21 @@
 .submit-btn:hover {
     background: linear-gradient(135deg, #1565c0, #0d47a1);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(25, 118, 210, 0.3);
+    box-shadow: 0 8px 25px rgba(13, 71, 161, 0.4);
+}
+
+.demo-cta-container {
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+    width: 100%;
+}
+
+.demo-cta-container .submit-btn {
+    text-decoration: none;
+    padding: 14px 30px;
+    width: auto;
+    min-width: 200px;
 }
 
 .submit-btn:active {
@@ -561,4 +600,62 @@ header .back-link:hover {
         height: 40px;
         font-size: 1.1rem;
     }
+}
+
+/* Credentials styling */
+.credentials ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.cred-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    background: #f7f9fc;
+    border: 1px solid #e6eef8;
+}
+
+.cred-item strong {
+    color: #2c3e50;
+}
+
+.cred-item .cred-details {
+    text-align: right;
+    font-size: 0.95rem;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace;
+    background: rgba(0, 0, 0, 0.03);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.credential-note {
+    margin-top: 12px;
+    color: #666;
+    font-size: 0.8rem;
+    line-height: 1.3;
+}
+
+.cred-label {
+    color: #6b7280;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-right: 6px;
+}
+
+.cred-details div {
+    white-space: nowrap;
 }
